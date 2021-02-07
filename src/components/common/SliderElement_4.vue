@@ -30,7 +30,7 @@ export default {
 <style lang="scss" scoped>
 
     .adv{
-        margin-top: 48px;
+        // margin-top: 48px;
         padding-left: 95px;
         display: flex;
         align-items: center;

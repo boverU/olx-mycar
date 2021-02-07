@@ -17,7 +17,7 @@
     <div class="wrapper">
      <div class="app"><slider/></div>
      </div> 
-     <div class="wrapper">
+      <div class="wrapper">
      <div class="app"> <approvement-info /></div>
      </div> 
      <div class="grey-wrapper">
@@ -33,9 +33,9 @@
 import NavBar from './components/Navbar.vue'
 import Hero from './components/Hero.vue'
 import About from './components/About.vue'
-import Slider from './components/Slider.vue'
 import ApprovementInfo from './components/ApprovementInfo.vue'
 import Calculator from './components/Calculator.vue'
+import Slider from './components/Slider.vue'
 
 export default {
   name: 'App',
@@ -43,9 +43,9 @@ export default {
    NavBar,
    Hero,
    About,
-   Slider,
    ApprovementInfo,
-   Calculator
+   Calculator,
+   Slider,
   }
 }
 </script>
@@ -78,6 +78,7 @@ body, * {
 }
 .grey-wrapper{
   display: flex;
+  width: 100%;
   justify-content: center;
   background: rgba(207, 215, 232, 0.2);
 }
@@ -86,6 +87,12 @@ body, * {
 .wrapper{
   display: flex;
   justify-content: center;
+}
+
+@media (max-width: 1024px) {
+    .app{
+        padding-left: 30px;  
+    }
 }
 
 
