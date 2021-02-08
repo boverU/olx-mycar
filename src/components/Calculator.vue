@@ -6,14 +6,17 @@
         <div class="calculator-flow">
           <div>
         <div class="calculator-field__title">Выберите марку авто, которую хотите приобрести</div>
-        <el-select v-model="selectedBrand" placeholder="Марка" aria-errormessage=";;;" class="calculator-field__input">
-         <el-option
-               v-for="item in brands"
-               :key="item.value"
-               :label="item.label"
-               :value="item.value">
-          </el-option>
-        </el-select>
+        <el-select v-model="selectedBrand"
+          class="calculator-field__input"
+          filterable 
+          placeholder="Выберите марку">
+    <el-option
+      v-for="item in brands"
+      :key="item.value"
+      :label="item.label"
+      :value="item.value">
+    </el-option>
+  </el-select>
       </div>
 
 
@@ -55,6 +58,7 @@
                     :min="1"
                     :max="60"
                     :custom-step="1"
+                    :show-marks="true"
                     v-model="months"
                     @slider-change="dataChange"
                     :value-text="'месяцев'"
@@ -131,7 +135,10 @@ export default {
       getAnnualPayment(data).then(response=>{
           this.creditPriceMonth = response.data.result;
       })  
-    }
+    },
+    filterMethod(value){
+      this.selectedBrand = value;
+    },
 
   },
   computed:{
@@ -155,7 +162,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .calculator-wrapper{
     padding-top: 64px;
     padding-bottom: 100px;
@@ -263,6 +270,15 @@ export default {
     }
   }
   .d-none{
+    display: none;
+  }
+  .el-slider__bar{
+    background: #6C06E8;
+  }
+  .el-tooltip.el-slider__button{
+    border: 2px solid #6C06E8;
+  }
+  .el-slider__stop.el-slider__marks-stop{
     display: none;
   }
 
