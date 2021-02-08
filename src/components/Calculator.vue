@@ -6,7 +6,7 @@
         <div class="calculator-flow">
           <div>
         <div class="calculator-field__title">Выберите марку авто, которую хотите приобрести</div>
-        <el-select v-model="selectedBrand" placeholder="Марка" class="calculator-field__input">
+        <el-select v-model="selectedBrand" placeholder="Марка" aria-errormessage=";;;" class="calculator-field__input">
          <el-option
                v-for="item in brands"
                :key="item.value"
@@ -26,6 +26,8 @@
             :max="20000000"
             :customStep="500000"
             @slider-change="dataChange"
+            type="number"
+            :value-text="'₸'"
             />
           </div>
 
@@ -34,25 +36,29 @@
           <element-slider
                     :name="'cashNow'" 
                     v-model="cashNow"
-                    :min="1000000"
+                    :min="min_cashNow_fee"
                     :max="max_init_fee"
                     :custom-step="100000"
                     icon-class="icon-tenge"
                     type="number"
                     placeholder="Первоначальный взнос"
                     @slider-change="dataChange"
-                    :show-input = "true"	
+                    :show-input = "true"
+                    :value-text="'₸'"	
                     />
         </div>
 
          <div class="calculator-field">
           <div class="calculator-field__title">Срок кредитования</div>
-          <!-- <div class="calculator-field__value">{{max_months}} месяцев</div> -->
           <element-slider 
                     :name = "'term'"
                     :min="1"
                     :max="60"
-                    :custom-step="1"/>
+                    :custom-step="1"
+                    v-model="months"
+                    @slider-change="dataChange"
+                    :value-text="'месяцев'"
+                    />
         </div> 
       </div>
        
@@ -84,7 +90,7 @@ export default {
   },
   data(){
     return {
-          price: 2000000,
+          price: 1000000,
           cashNow: '',
           months: '',
           creditPriceMonth: 0,   
@@ -140,6 +146,9 @@ export default {
             if (this.price >= 1000000000) index = 0.9999;
             return Math.floor(this.price * index);
         },
+      min_cashNow_fee(){
+       return this.price * 0.2;
+      }
   
   },
   

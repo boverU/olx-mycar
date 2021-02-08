@@ -1,9 +1,10 @@
 <template>
     <div class="slInp">
-        <div v-show="!isEditing" class = "slInp__value">{{valueWithSpaces}}
+        <div v-show="!isEditing" class = "slInp__value">{{valueWithSpaces }} {{valueText}}
              <img @click="toggleEdit(true)" src="../../../assets/edit2.svg" alt="">
          </div>
             <input 
+                v-show="isEditing"
                 :ref="name"
                 v-model="inputValueWithSpaces"
                 @change="validInput"
@@ -50,7 +51,7 @@ export default {
         
     },
     mounted(){
-        console.log(this.$root.$refs);
+        console.log(this.$refs);
     },
     props: {
         placeholder: {
@@ -88,6 +89,10 @@ export default {
         name:{
             type: String,
             default: ''
+        },
+        valueText: {
+            type: String,
+            default: ''
         }
     },
     data() {
@@ -100,7 +105,6 @@ export default {
                 precision: 0,
                 masked: false,
             },
-            focus: true,
             inputModel: '',
             isEditing: false
         };
@@ -202,6 +206,11 @@ export default {
             this.$emit('slider-change');
         },
         toggleEdit(boolean){
+            if(boolean === true){
+               setTimeout(() => {
+                this.$refs[this.name].focus();
+                }, 100);
+            }
             this.isEditing = boolean
         }
     },
