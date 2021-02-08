@@ -1,5 +1,20 @@
 <template>
     <div class="slInp">
+        <div v-show="!isEditing" class = "slInp__value">{{valueWithSpaces}}
+             <img @click="toggleEdit(true)" src="../../../assets/edit2.svg" alt="">
+         </div>
+            <input 
+                :ref="name"
+                v-model="inputValueWithSpaces"
+                @change="validInput"
+                @blur="toggleEdit(false)"
+            >
+            <div
+                v-if="iconClass"
+                class="icon"
+                :class="iconClass"
+            />
+        
         <el-slider
             v-model="slider"
             class="slider is-inButton"
@@ -29,7 +44,14 @@
  * @vue-event {} marks - Расчет промежуточных цифр для слайдера
  * @vue-event {} blur - Снять фокус и инпута
  */
+
 export default {
+    components: {
+        
+    },
+    mounted(){
+        console.log(this.$root.$refs);
+    },
     props: {
         placeholder: {
             type: String,
@@ -63,6 +85,10 @@ export default {
             type: Number,
             default: 1,
         },
+        name:{
+            type: String,
+            default: ''
+        }
     },
     data() {
         return {
@@ -76,6 +102,7 @@ export default {
             },
             focus: true,
             inputModel: '',
+            isEditing: false
         };
     },
     computed: {
@@ -95,6 +122,9 @@ export default {
                     this.inputModel = value.slice(0, value.length - 1);
                 }
             },
+        },
+        valueWithSpaces(){
+             return Number(this.value).toLocaleString()   
         },
         slider: {
             get() {
@@ -171,15 +201,33 @@ export default {
             this.$emit('input', this.inputModel);
             this.$emit('slider-change');
         },
+        toggleEdit(boolean){
+            this.isEditing = boolean
+        }
     },
 };
 </script>
 
-<style lang="scss" >
+<style lang="scss" scoped>
 .slInp {
     display: block;
     width: 100%;
     height: 50px;
+    &__value{
+        font-size: 21px;
+        line-height: 25px;
+        margin-top: 8px;
+        img{
+            cursor: pointer;
+        }
+    }
+    input{
+        font-size: 21px;
+        line-height: 25px;
+        border: none;
+        background-color: transparent;
+        outline: transparent;
+    }
 }
 
 .slLabel {
@@ -248,8 +296,5 @@ export default {
 } /* Firefox 18- */
 :-ms-input-placeholder {
     color: #737c92;
-}
-.el-slider__bar{
-    background: #6C06E8 !important;
 }
 </style>

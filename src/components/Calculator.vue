@@ -19,28 +19,40 @@
 
           <div class="calculator-field">
           <div class="calculator-field__title">Стоимость авто</div>
-          <div class="calculator-field__value">{{price}} ₸</div>
-          
+          <element-slider
+            :name="'price'" 
+            v-model="price"
+            :min="1000000"
+            :max="20000000"
+            :customStep="500000"
+            @slider-change="dataChange"
+            />
           </div>
 
         <div class="calculator-field">
           <div class="calculator-field__title">Первоначальный взнос</div>
-          <div class="calculator-field__value">{{cashNow}} ({{min_initial_fee}}%)</div>
           <element-slider
+                    :name="'cashNow'" 
                     v-model="cashNow"
-                    :min="min_init_fee"
+                    :min="1000000"
                     :max="max_init_fee"
                     :custom-step="100000"
                     icon-class="icon-tenge"
                     type="number"
                     placeholder="Первоначальный взнос"
-                    @slider-change="dataChange"/>
+                    @slider-change="dataChange"
+                    :show-input = "true"	
+                    />
         </div>
 
          <div class="calculator-field">
           <div class="calculator-field__title">Срок кредитования</div>
           <!-- <div class="calculator-field__value">{{max_months}} месяцев</div> -->
-          <element-slider/>
+          <element-slider 
+                    :name = "'term'"
+                    :min="1"
+                    :max="60"
+                    :custom-step="1"/>
         </div> 
       </div>
        
@@ -106,7 +118,7 @@ export default {
     async dataChange(){
       const data = {
                 brand_id: this.selectedBrand,
-                auto_price: 1000000,
+                auto_price: this.price,
                 term: Number(this.months),
                 start_sum: Number(this.cashNow),
                 car_type: 'any',}
