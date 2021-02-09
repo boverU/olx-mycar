@@ -72,7 +72,7 @@
             <h4>Ежемесячный платеж</h4>
             <h3>{{creditPriceMonth}}</h3>
             <p>включены страхование от несчатных случаев и КАСКО</p>
-            <a href="" class="button">Получить онлайн одобрение</a>
+            <a href="" class="button" @click.prevent="togglePopup()">Получить онлайн одобрение</a>
            
             <div class="img">
                 <img src="../assets/Keys.png" alt="">
@@ -80,6 +80,10 @@
          </div>
        </div>
   </div>
+  <form-popup :is-popup-open="isPopupOpen">
+      <modal-inner />
+  </form-popup>
+  
  </div>
 </template>
 
@@ -87,13 +91,16 @@
 // import SliderInput from './common/SliderInput.vue'
 import {getCreditAvailableBrands, getCreditInfoByBrandId, getAnnualPayment} from '../utils/api';
 import ElementSlider  from './common/calculator/ElementSlider.vue'
+import FormPopup from './FormPopup.vue';
+import ModalInner from './ModalInner.vue'
 export default {
   components: {
-    // SliderInput
-    ElementSlider
+    ElementSlider,
+    FormPopup,
+    ModalInner
   },
   data(){
-    return {
+       return {
           price: 1000000,
           cashNow: '',
           months: '',
@@ -103,7 +110,8 @@ export default {
           min_initial_fee: 0,
           payment: null,
           maxPrice: 0,
-          min_init_fee: 0
+          min_init_fee: 0,
+          isPopupOpen: true
     }
   },
   watch:{
@@ -139,7 +147,9 @@ export default {
     filterMethod(value){
       this.selectedBrand = value;
     },
-
+    togglePopup(){
+      this.isPopupOpen = !this.isPopupOpen;
+    }
   },
   computed:{
     max_init_fee() {
@@ -273,7 +283,7 @@ export default {
     display: none;
   }
   .el-slider__bar{
-    background: #6C06E8;
+    background: #6C06E8 !important;
   }
   .el-tooltip.el-slider__button{
     border: 2px solid #6C06E8;

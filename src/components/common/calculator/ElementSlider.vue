@@ -228,11 +228,14 @@ export default {
         margin-top: 8px;
         img{
             cursor: pointer;
+            margin-left: 4px;
         }
     }
     input{
         font-size: 21px;
         line-height: 25px;
+        display: block;
+        margin-top: 8px;
         border: none;
         background-color: transparent;
         outline: transparent;

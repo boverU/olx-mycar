@@ -71,6 +71,7 @@ body, * {
   font-family: regular;
   font-weight: 500;
   font-feature-settings: 'pnum' on, 'lnum' on;
+  scroll-behavior: smooth;
 }
 .app {
   max-width: 1198px;
@@ -89,7 +90,7 @@ body, * {
   justify-content: center;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1100px) {
     .app{
         padding-left: 30px;  
     }
