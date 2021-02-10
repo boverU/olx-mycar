@@ -47,7 +47,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 @font-face {
   font-family: 'regular';
   src: url('./fonts/Raleway-Regular.ttf');
@@ -91,4 +91,18 @@ body,
     padding-left: 30px;
   }
 }
+
+.dialog-window {
+  background: rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(15px);
+}
+.el-dialog {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  &__header {
+   display: none;
+ }
+}
+
+
 </style>

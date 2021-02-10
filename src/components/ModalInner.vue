@@ -1,6 +1,6 @@
 <template>
-  <div class="popup">
-    <div class="dialog-wrapper-div">
+  <div class="popup dialog-wrapper-div">
+    <div class="">
       <div class="form">
         <h3 class="h3">Отправить заявку на кредит</h3>
         <span class="time">Ответим в течение 60 минут</span>
@@ -128,7 +128,9 @@ export default {
   box-shadow: 0px 0px 20px rgba(29, 42, 69, 0.1);
   border-radius: 5px;
 }
-
+.popup.bcg {
+  background-color: #FFFFFF;
+}
 .popup {
   display: flex;
   justify-content: center;

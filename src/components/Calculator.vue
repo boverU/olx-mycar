@@ -98,11 +98,6 @@
 <script>
 // import SliderInput from './common/SliderInput.vue'
 import {getCreditAvailableBrands, getCreditInfoByBrandId, getAnnualPayment} from '../utils/api';
-import {
-  getCreditAvailableBrands,
-  getCreditInfoByBrandId,
-  getAnnualPayment,
-} from '../utils/api';
 import ElementSlider from './common/calculator/ElementSlider.vue'
 import FormPopup from './FormPopup.vue'
 import ModalInner from './ModalInner.vue'

@@ -1,100 +1,95 @@
 <template>
-<div>
-  <el-dialog
-      :visible.sync="isPopupOpen"
-      width="502px"
-      :fullscreen="true"
-      :show-close="true"
-      custom-class="dialog-window"
-  >
+  <div>
+    <el-dialog :visible.sync="isPopupOpen" show-close width="502px">
       <slot />
-      <el-dialog
-        width="502px"
-        title="Inner Dialog"
-        :visible.sync="innerVisible"
-        append-to-body
-        class="popup"
-      >
-        <div v-if="!resolveCustomStatus" class="form">
-          <h2 class="title">
-            {{ computedTitle }}
-          </h2>
-          <span class="subtitle">{{ computedSubTitle }}</span>
+<!--      <el-dialog-->
+<!--          width="502px"-->
+<!--          title="Inner Dialog"-->
+<!--          :visible.sync="isPopupOpen"-->
+<!--          append-to-body-->
+<!--          class="popup"-->
+<!--      >-->
+<!--        <div v-if="!resolveCustomStatus" class="form">-->
+<!--          <h2 class="title">-->
+<!--            {{ computedTitle }}-->
+<!--          </h2>-->
+<!--          <span class="subtitle">{{ computedSubTitle }}</span>-->
 
-          <div class="progress-wrap">
-            <progress-bar
-              v-if="resolveStatus === 'pending'"
-              :bar-color="['#c89dfc', '#975CDF']"
-              :percentage="percentage"
-            />
-          </div>
+<!--          <div class="progress-wrap">-->
+<!--            <progress-bar-->
+<!--                v-if="resolveStatus === 'pending'"-->
+<!--                :bar-color="['#c89dfc', '#975CDF']"-->
+<!--                :percentage="percentage"-->
+<!--            />-->
+<!--          </div>-->
 
-          <icon
-            :type="'car'"
-            class="car-icon"
-            :style="carStyle"
-            :class="{ active: resolveStatus === 'success' }"
-          />
-          <icon :type="'wind'" :class="loaded ? 'wind' : 'wind-animate'" />
-          <icon
-            :type="'wind'"
-            :class="loaded ? 'wind' : 'wind-animate-second'"
-          />
+<!--          <icon-->
+<!--              :type="'car'"-->
+<!--              class="car-icon"-->
+<!--              :style="carStyle"-->
+<!--              :class="{ active: resolveStatus === 'success' }"-->
+<!--          />-->
+<!--          <icon :type="'wind'" :class="loaded ? 'wind' : 'wind-animate'" />-->
+<!--          <icon-->
+<!--              :type="'wind'"-->
+<!--              :class="loaded ? 'wind' : 'wind-animate-second'"-->
+<!--          />-->
 
-          <div class="man">
-            <div class="man_wrapper">
-              <icon :type="'man'" class="body" />
-              <icon :type="'hand1'" class="hand1" :class="{ active: active }" />
-              <icon :type="'hand2'" class="hand2" :class="{ active: active }" />
-              <icon
-                :type="'glasses'"
-                class="glasses"
-                :class="{ active: active }"
-              />
-            </div>
-          </div>
+<!--          <div class="man">-->
+<!--            <div class="man_wrapper">-->
+<!--              <icon :type="'man'" class="body" />-->
+<!--              <icon :type="'hand1'" class="hand1" :class="{ active: active }" />-->
+<!--              <icon :type="'hand2'" class="hand2" :class="{ active: active }" />-->
+<!--              <icon-->
+<!--                  :type="'glasses'"-->
+<!--                  class="glasses"-->
+<!--                  :class="{ active: active }"-->
+<!--              />-->
+<!--            </div>-->
+<!--          </div>-->
 
-          <icon
-            :type="'star'"
-            class="star star-1"
-            :class="{ active: active }"
-          />
-          <icon
-            :type="'star'"
-            class="star star-2"
-            :class="{ active: active }"
-          />
+<!--          <icon-->
+<!--              :type="'star'"-->
+<!--              class="star star-1"-->
+<!--              :class="{ active: active }"-->
+<!--          />-->
+<!--          <icon-->
+<!--              :type="'star'"-->
+<!--              class="star star-2"-->
+<!--              :class="{ active: active }"-->
+<!--          />-->
 
-          <icon
-            :type="'heart'"
-            class="heart heart-1"
-            :class="{ active: active }"
-          />
-          <icon
-            :type="'heart'"
-            class="heart heart-2"
-            :class="{ active: active }"
-          />
-          <icon
-            :type="'heart'"
-            class="heart heart-3"
-            :class="{ active: active }"
-          />
-          <icon
-            type="'heart'"
-            class="heart heart-4"
-            :class="{ active: resolveStatus === 'success' }"
-          />
-        </div>
-        <template v-else>
-          <resolve-popup :status="resolveCustomStatus"></resolve-popup>
-        </template>
-      </el-dialog>
+<!--          <icon-->
+<!--              :type="'heart'"-->
+<!--              class="heart heart-1"-->
+<!--              :class="{ active: active }"-->
+<!--          />-->
+<!--          <icon-->
+<!--              :type="'heart'"-->
+<!--              class="heart heart-2"-->
+<!--              :class="{ active: active }"-->
+<!--          />-->
+<!--          <icon-->
+<!--              :type="'heart'"-->
+<!--              class="heart heart-3"-->
+<!--              :class="{ active: active }"-->
+<!--          />-->
+<!--          <icon-->
+<!--              type="'heart'"-->
+<!--              class="heart heart-4"-->
+<!--              :class="{ active: resolveStatus === 'success' }"-->
+<!--          />-->
+<!--        </div>-->
+<!--        <template v-else>-->
+<!--          <resolve-popup :status="resolveCustomStatus"></resolve-popup>-->
+<!--        </template>-->
+<!--      </el-dialog>-->
     </el-dialog>
   </div>
 </template>
 
 <script>
+/*eslint-disable*/
 import Icon from './shared/Icon.vue'
 import ProgressBar from './shared/ProgressBar.vue'
 import ResolvePopup from './Scorring/ResolvePopup.vue'
@@ -145,10 +140,10 @@ export default {
     resolveCustomStatus() {
       // Расчет статусов для отображения
       if (
-        this.resolveStatus &&
-        this.resolveStatus !== 'pending' &&
-        this.resolveStatus !== 'done-recently' &&
-        this.resolveStatus !== 'success'
+          this.resolveStatus &&
+          this.resolveStatus !== 'pending' &&
+          this.resolveStatus !== 'done-recently' &&
+          this.resolveStatus !== 'success'
       ) {
         return this.resolveStatus
       }
@@ -204,8 +199,6 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
 
 <style lang="scss" scoped>
 .popup {
@@ -279,7 +272,8 @@ export default {
       hyphens: manual;
     }
     .wind {
-
+      display: none;
+    }
     .wind-animate {
       z-index: 1;
       position: absolute;
@@ -491,16 +485,6 @@ export default {
   }
   100% {
     opacity: 0;
-  }
-}
-}
-.dialog-window {
-  background: rgba(0, 0, 0, 0.1) !important;
-  backdrop-filter: blur(15px);
-}
-.el-dialog {
-  &__header {
-    display: none;
   }
 }
 </style>
