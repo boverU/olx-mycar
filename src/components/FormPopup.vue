@@ -1,6 +1,12 @@
 <template>
-  <div>
-    <el-dialog :visible.sync="isPopupOpen" show-close width="502px">
+<div>
+  <el-dialog
+      :visible.sync="isPopupOpen"
+      width="502px"
+      :fullscreen="true"
+      :show-close="true"
+      custom-class="dialog-window"
+  >
       <slot />
       <el-dialog
         width="502px"
@@ -199,6 +205,8 @@ export default {
 }
 </script>
 
+<style lang="scss">
+
 <style lang="scss" scoped>
 .popup {
   .close {
@@ -271,8 +279,7 @@ export default {
       hyphens: manual;
     }
     .wind {
-      display: none;
-    }
+
     .wind-animate {
       z-index: 1;
       position: absolute;
@@ -484,6 +491,16 @@ export default {
   }
   100% {
     opacity: 0;
+  }
+}
+}
+.dialog-window {
+  background: rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(15px);
+}
+.el-dialog {
+  &__header {
+    display: none;
   }
 }
 </style>
