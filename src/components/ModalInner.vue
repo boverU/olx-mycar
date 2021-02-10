@@ -89,7 +89,8 @@ export default {
   props: {
     close: {
       type: Function,
-      default: () => {},
+      default: () => {
+      },
     }
   },
   data() {
@@ -104,7 +105,7 @@ export default {
     };
   },
   methods: {
-    hide(){
+    hide() {
       this.$emit('close')
     },
     async showSuccess() {

@@ -8,6 +8,7 @@
             <div class="calculator-field__title">Выберите марку авто, которую хотите приобрести</div>
             <el-select v-model="selectedBrand"
                        class="calculator-field__input"
+                       :class="[{'is-error': selectedBrand}]"
                        filterable
                        placeholder="Выберите марку">
               <el-option
@@ -17,6 +18,11 @@
                   :value="item.value">
               </el-option>
             </el-select>
+            <span
+                v-if="!selectedBrand"
+                class="error-text"
+            >Пожалуйста выберите марку машины
+            </span>
           </div>
 
 
@@ -187,6 +193,16 @@ export default {
 .calculator-wrapper {
   padding-top: 64px;
   padding-bottom: 100px;
+}
+.error-text {
+  position: absolute;
+  bottom: -16px;
+  font-size: 11px;
+  color: #fa4550;
+}
+
+.is-error {
+  border: 1px solid #ff6770;
 }
 
 .calculator {
