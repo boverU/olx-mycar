@@ -1,32 +1,29 @@
 <template>
   <div>
     <div class="wrapper">
-     <div class="app"><nav-bar/></div> 
+      <div class="app"><nav-bar /></div>
     </div>
-    
+
     <div class="grey-wrapper">
-     <div class="app">
-       <hero />
-      </div> 
-    </div> 
-    
-   <div class="wrapper">
-     <div class="app"><about/></div>
-     </div> 
-    
+      <div class="app">
+        <hero />
+      </div>
+    </div>
+
     <div class="wrapper">
-     <div class="app"><slider/></div>
-     </div> 
-      <div class="wrapper">
-     <div class="app"> <approvement-info /></div>
-     </div> 
-     <div class="grey-wrapper">
-     <div class="app"> <calculator /></div>
-     </div> 
-   
-    
+      <div class="app"><about /></div>
+    </div>
+
+    <div class="wrapper">
+      <div class="app"><slider /></div>
+    </div>
+    <div class="wrapper">
+      <div class="app"><approvement-info /></div>
+    </div>
+    <div class="grey-wrapper">
+      <div class="app"><calculator /></div>
+    </div>
   </div>
-    
 </template>
 
 <script>
@@ -40,31 +37,31 @@ import Slider from './components/Slider.vue'
 export default {
   name: 'App',
   components: {
-   NavBar,
-   Hero,
-   About,
-   ApprovementInfo,
-   Calculator,
-   Slider,
-  }
+    NavBar,
+    Hero,
+    About,
+    ApprovementInfo,
+    Calculator,
+    Slider,
+  },
 }
 </script>
 
 <style>
-
 @font-face {
-  font-family: "regular";
-  src: url("./fonts/Raleway-Regular.ttf");
+  font-family: 'regular';
+  src: url('./fonts/Raleway-Regular.ttf');
 }
 
 @font-face {
-  font-family: "medium";
-  src: url("./fonts/Raleway-Medium.ttf");
+  font-family: 'medium';
+  src: url('./fonts/Raleway-Medium.ttf');
 }
-body{
+body {
   background: rgba(207, 215, 232, 0.08);
 }
-body, * {
+body,
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -77,25 +74,21 @@ body, * {
   max-width: 1198px;
   width: 100%;
 }
-.grey-wrapper{
+.grey-wrapper {
   display: flex;
   width: 100%;
   justify-content: center;
   background: rgba(207, 215, 232, 0.2);
 }
 
-
-.wrapper{
+.wrapper {
   display: flex;
   justify-content: center;
 }
 
 @media (max-width: 1100px) {
-    .app{
-        padding-left: 30px;  
-    }
+  .app {
+    padding-left: 30px;
+  }
 }
-
-
-
 </style>

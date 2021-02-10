@@ -1,0 +1,424 @@
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    &.icon-favorites {
+        background-image: url('~assets/images/icons/icon-favorites.png');
+        width: 14px;
+        height: 12px;
+    }
+    &.icon-fb {
+        width: 10px;
+        height: 20px;
+        background-image: url('~assets/images/icons/icon-fb.svg');
+    }
+    &.icon-inst {
+        width: 18px;
+        height: 18px;
+        background-image: url('~assets/images/icons/icon-inst.svg');
+    }
+    &.icon-ytb {
+        width: 20px;
+        height: 13px;
+        background-image: url('~assets/images/icons/icon-ytb.svg');
+    }
+    &.close-modal {
+        width: 21px;
+        height: 21px;
+        background-image: url('~assets/images/close-modal.svg');
+    }
+    &.icon-btn-plus {
+        width: 16px;
+        height: 16px;
+        background-image: url('~assets/images/icons/button-plus.svg');
+    }
+    &.icon-people {
+        width: 16px;
+        height: 16px;
+        background-image: url('~assets/images/icons/people.svg');
+    }
+    &.icon-restart {
+        width: 16px;
+        height: 16px;
+        background-image: url('~assets/images/icons/icon-restart.svg');
+    }
+    &.icon-modal-close {
+        width: 21px;
+        height: 21px;
+        background-image: url('~assets/images/close-modal.svg');
+    }
+    &.icon-input-close {
+        width: 16px;
+        height: 16px;
+        background-image: url('~assets/images/icons/input-clear.svg');
+    }
+    &.icon-tenge {
+        width: 10px;
+        height: 13px;
+        background-image: url('~assets/images/icons/tenge.svg');
+    }
+    &.icon-clear16-thin {
+        width: 16px;
+        height: 16px;
+        background-image: url('~assets/images/icons/input-clear16-thin.svg');
+    }
+    &.icon-tenge-black {
+        width: 10px;
+        height: 14px;
+        background-image: url('~assets/images/icons/tenge-black.svg');
+    }
+    &.icon-tenge-black-small {
+        width: 8px;
+        height: 11px;
+        background-image: url('~assets/images/icons/tenge-black-small.svg');
+    }
+    &.icon-dots {
+        background-image: url('~assets/images/icons/icon-dots.svg');
+        width: 22px;
+        height: 4px;
+    }
+    &.icon-trash {
+        background-image: url('~assets/images/icons/icon-trash.svg');
+        width: 15px;
+        height: 15px;
+    }
+    &.icon-pencil {
+        width: 16px;
+        height: 16px;
+        background-image: url('~assets/images/icons/pencil.svg');
+    }
+    &.icon-bell {
+        width: 16px;
+        height: 16px;
+        background-image: url('~assets/images/icons/bell.svg');
+    }
+    &.icon-profile {
+        width: 16px;
+        height: 16px;
+        background-image: url('~assets/images/icons/profile.svg');
+    }
+    &.icon-options {
+        width: 16px;
+        height: 16px;
+        background-image: url('~assets/images/icons/options.svg');
+    }
+    &.icon-quit {
+        width: 16px;
+        height: 16px;
+        background-image: url('~assets/images/icons/quit.svg');
+    }
+    &.icon-like {
+        width: 16px;
+        height: 16px;
+        background-image: url('~assets/images/icons/icon-like.svg');
+    }
+    &.icon-profile-green {
+        width: 16px;
+        height: 16px;
+        background-image: url('~assets/images/icons/profile-green.svg');
+    }
+    &.icon-notice-question-info {
+        width: 20px;
+        height: 20px;
+        background-image: url('~assets/images/icons/notice-question-info.svg');
+    }
+    &.icon-notice-question-warning {
+        width: 20px;
+        height: 20px;
+        background-image: url('~assets/images/icons/notice-question-warning.svg');
+    }
+    &.icon-outline-arrow-right {
+        width: 16px;
+        height: 16px;
+        background-image: url('~assets/images/icons/outline-arrow-right.svg');
+    }
+    &.icon-outline-plus-big {
+        width: 16px;
+        height: 16px;
+        background-image: url('~assets/images/icons/outline-plus-big.svg');
+    }
+    &.icon-outline-plus-small {
+        width: 14px;
+        height: 15px;
+        background-image: url('~assets/images/icons/outline-plus-small.svg');
+    }
+    &.icon-inline-plus {
+        width: 24px;
+        height: 24px;
+        background-image: url('~assets/images/icons/icon-inline-plus.svg');
+    }
+    &.icon-big-arrow-right {
+        width: 15px;
+        height: 25px;
+        background-image: url('~assets/images/icons/big-arrow-right.svg');
+    }
+    &.icon-arrow-left-bold {
+        width: 16px;
+        height: 16px;
+        background-image: url('~assets/images/icons/arrow-left-bold.svg');
+    }
+    &.icon-big-arrow-left {
+        width: 15px;
+        height: 25px;
+        background-image: url('~assets/images/icons/big-arrow-left.svg');
+    }
+    &.icon-inline-arrow-left {
+        width: 6px;
+        height: 10px;
+        background-image: url('~assets/images/icons/inline-arrow-left.svg');
+    }
+    &.icon-location {
+        width: 16px;
+        height: 17px;
+        background-image: url('~assets/images/icons/location.svg');
+    }
+    &.icon-pencil-big {
+        width: 24px;
+        height: 24px;
+        background-image: url('~assets/images/icons/pencil-big.svg');
+    }
+    &.icon-field-required {
+        width: 9px;
+        height: 16px;
+        background-image: url('~assets/images/icons/field-required.svg');
+    }
+    &.icon-info-help {
+        width: 16px;
+        height: 16px;
+    }
+    &.icon-info-help {
+        width: 16px;
+        height: 16px;
+        background-image: url('~assets/images/icons/info-help.svg');
+    }
+    &.icon-save-search {
+        width: 16px;
+        height: 17px;
+        background-image: url('~assets/images/icons/save-search.svg');
+    }
+    &.icon-dot {
+        width: 4px;
+        height: 4px;
+        background-image: url('~assets/images/icons/dot.svg');
+    }
+    &.icon-favorite {
+        width: 20px;
+        height: 20px;
+        background-image: url('~assets/images/icons/icon-favorite.svg');
+    }
+    &.icon-time {
+        width: 20px;
+        height: 20px;
+        background-image: url('~assets/images/icons/icon-time.svg');
+    }
+    &.icon-select-sort {
+        background-image: url('~assets/images/icons/select-sort_group.svg');
+        width: 24px;
+        height: 24px;
+    }
+    &.icon-in-stock {
+        background-image: url('~assets/images/icons/in-stock.svg');
+        width: 12px;
+        height: 10px;
+    }
+    &.icon-logo-prime {
+        background-image: url('~assets/images/icons/logo-prime.svg');
+        width: 78px;
+        height: 24px;
+    }
+    &.icon-prime {
+        background-image: url('~assets/images/icons/prime.svg');
+        width: 12px;
+        height: 12px;
+    }
+    &.icon-credit {
+        background-image: url('~assets/images/icons/credit.svg');
+        width: 12px;
+        height: 12px;
+    }
+    //Иконки для кузовов
+    &.icon-car-default {
+        width: 151px;
+        height: 97px;
+        background-image: url('~assets/images/icons/car-types/default.svg');
+    }
+    &.icon-car-cabriolet {
+        width: 122px;
+        height: 37px;
+        background-image: url('~assets/images/icons/car-types/cabriolet.svg');
+    }
+    &.icon-car-coupe {
+        background-image: url('~assets/images/icons/car-types/coupe.svg');
+        width: 122px;
+        height: 38px;
+    }
+    &.icon-car-hatchback3 {
+        background-image: url('~assets/images/icons/car-types/hatchback3.svg');
+        width: 122px;
+        height: 46px;
+    }
+    &.icon-car-hatchback5 {
+        background-image: url('~assets/images/icons/car-types/hatchback5.svg');
+        width: 122px;
+        height: 46px;
+    }
+    &.icon-car-liftback {
+        background-image: url('~assets/images/icons/car-types/liftback.svg');
+        width: 122px;
+        height: 46px;
+    }
+    &.icon-car-limousine {
+        background-image: url('~assets/images/icons/car-types/limousine.svg');
+        width: 122px;
+        height: 42px;
+    }
+    &.icon-car-minivan {
+        background-image: url('~assets/images/icons/car-types/minivan.svg');
+        width: 122px;
+        height: 46px;
+    }
+    &.icon-car-pickup {
+        background-image: url('~assets/images/icons/car-types/pickup.svg');
+        width: 122px;
+        height: 47px;
+    }
+    &.icon-car-roadster3 {
+        background-image: url('~assets/images/icons/car-types/roadster3.svg');
+        width: 122px;
+        height: 46px;
+    }
+    &.icon-car-roadster5 {
+        background-image: url('~assets/images/icons/car-types/roadster5.svg');
+        width: 122px;
+        height: 46px;
+    }
+    &.icon-car-sedan5 {
+        background-image: url('~assets/images/icons/car-types/sedan5.svg');
+        width: 122px;
+        height: 38px;
+    }
+    &.icon-car-universal5 {
+        background-image: url('~assets/images/icons/car-types/universal5.svg');
+        width: 122px;
+        height: 40px;
+    }
+    &.icon-car-van {
+        background-image: url('~assets/images/icons/car-types/van.svg');
+        width: 122px;
+        height: 57px;
+    }
+    //Фотоиконки
+    &.icon-carphoto-half-right {
+        background-image: url('~assets/images/icons/car-photo/half-right.svg');
+        width: 111px;
+        height: 72px;
+    }
+    &.icon-carphoto-half-left {
+        background-image: url('~assets/images/icons/car-photo/half-left.svg');
+        width: 111px;
+        height: 72px;
+    }
+    &.icon-carphoto-front {
+        background-image: url('~assets/images/icons/car-photo/front.svg');
+        width: 111px;
+        height: 72px;
+    }
+    &.icon-carphoto-back {
+        background-image: url('~assets/images/icons/car-photo/back.svg');
+        width: 111px;
+        height: 72px;
+    }
+    &.icon-carphoto-right-back {
+        background-image: url('~assets/images/icons/car-photo/right-back.svg');
+        width: 111px;
+        height: 72px;
+    }
+    &.icon-carphoto-left-back {
+        background-image: url('~assets/images/icons/car-photo/left-back.svg');
+        width: 111px;
+        height: 72px;
+    }
+    &.icon-carphoto-right {
+        background-image: url('~assets/images/icons/car-photo/right.svg');
+        width: 111px;
+        height: 72px;
+    }
+    &.icon-carphoto-left {
+        background-image: url('~assets/images/icons/car-photo/left.svg');
+        width: 111px;
+        height: 72px;
+    }
+    &.icon-carphoto-salon {
+        background-image: url('~assets/images/icons/car-photo/salon.svg');
+        width: 111px;
+        height: 72px;
+    }
+    &.icon-carphoto-wheel {
+        background-image: url('~assets/images/icons/car-photo/wheel.svg');
+        width: 111px;
+        height: 72px;
+    }
+    &.icon-carphoto-motor {
+        background-image: url('~assets/images/icons/car-photo/motor.svg');
+        width: 111px;
+        height: 72px;
+    }
+    &.icon-carphoto-baggage {
+        background-image: url('~assets/images/icons/car-photo/baggage.svg');
+        width: 111px;
+        height: 72px;
+    }
+    &.icon-carphoto-tuning {
+        background-image: url('~assets/images/icons/car-photo/tuning.svg');
+        width: 111px;
+        height: 72px;
+    }
+    &.icon-carphoto-features {
+        background-image: url('~assets/images/icons/car-photo/features.svg');
+        width: 111px;
+        height: 72px;
+    }
+    //Баннеры
+    &.icon-ads-credit {
+        background-image: url('~assets/images/icons/ads/credit.svg');
+        width: 215px;
+        height: 324px;
+    }
+    &.icon-ads-help {
+        background-image: url('~assets/images/icons/ads/help.svg');
+        width: 215px;
+        height: 324px;
+    }
+    &.icon-ads-diller {
+        background-image: url('~assets/images/icons/ads/diller.svg');
+        width: 215px;
+        height: 324px;
+    }
+    &.icon-ads-credit-mobile {
+        background-image: url('~assets/images/icons/ads/credit-mobile.svg');
+        width: 180px;
+        height: 120px;
+    }
+    &.icon-ads-help-mobile {
+        background-image: url('~assets/images/icons/ads/help-mobile.svg');
+        width: 180px;
+        height: 120px;
+    }
+    &.icon-ads-diller-mobile {
+        background-image: url('~assets/images/icons/ads/diller-mobile.svg');
+        width: 180px;
+        height: 120px;
+    }
+    &.icon-ads-diller24 {
+        background-image: url('~assets/images/icons/ads/diller24.svg');
+        width: 138px;
+        height: 90px;
+    }
+    &.icon-ads-tools {
+        background-image: url('~assets/images/icons/ads/tools.svg');
+        width: 120px;
+        height: 67px;
+    }
+}

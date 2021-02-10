@@ -1,0 +1,17 @@
+.container {
+    width: 100%;
+    max-width: 1246px; //1198 + 24 + 24
+    margin: 0 auto;
+    padding: 0 24px;
+    @media (max-width: 767px) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+.d-flex {
+    display: flex;
+    @media (max-width: 1245px) {
+        display: block;
+    }
+}
