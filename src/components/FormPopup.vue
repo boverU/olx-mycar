@@ -1,6 +1,12 @@
 <template>
 <div>
-  <el-dialog :visible.sync="isPopupOpen" show-close width = "502px">
+  <el-dialog
+      :visible.sync="isPopupOpen"
+      width="502px"
+      :fullscreen="true"
+      :show-close="true"
+      custom-class="dialog-window"
+  >
     <slot/>
   </el-dialog>
 </div>
@@ -19,8 +25,11 @@ export default {
 </script>
 
 <style lang="scss">
+  .dialog-window {
+    background: rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: blur(15px);
+  }
   .el-dialog{
-    border-radius: 5px;
     &__header{
       display: none;
     }
