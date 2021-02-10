@@ -1,6 +1,6 @@
 <template>
   <div class="popup dialog-wrapper-div">
-    <div class="">
+    <div v-if="firstModal">
       <div class="form">
         <h3 class="h3">Отправить заявку на кредит</h3>
         <span class="time">Ответим в течение 60 минут</span>
@@ -69,6 +69,7 @@
         </el-button>
       </div>
     </div>
+    <load-scoring-popup :is-popup-open="!firstModal" @close="hide"/>
   </div>
 
 </template>
@@ -78,13 +79,20 @@
 import PhoneInput from './shared/PhoneInput.vue';
 
 import TextInputEasy from './shared/TextInputEasy.vue'
+import LoadScoringPopup from "@/components/LoadScoringPopup";
+
 
 export default {
   components: {
     TextInputEasy,
-    PhoneInput
+    PhoneInput,
+    LoadScoringPopup
   },
   props: {
+    firstModal: {
+      type: Boolean,
+      default: true
+    },
     close: {
       type: Function,
       default: () => {
@@ -113,7 +121,12 @@ export default {
         iin: this.iin,
       };
       console.log(obj);
+      this.openSecondModal();
     },
+    openSecondModal() {
+      this.firstModal = false;
+    }
+
   }
 
 }

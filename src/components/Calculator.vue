@@ -88,7 +88,7 @@
         </div>
       </div>
     </div>
-    <form-popup :is-popup-open="isPopupOpen">
+    <form-popup :is-popup-open="isPopupOpen" >
       <modal-inner @close="handleClose"/>
     </form-popup>
 
@@ -122,7 +122,8 @@ export default {
       min_init_fee: 0,
       isPopupOpen: true,
       innerVisible: true,
-      scoringStatus: '',
+      scoringStatus: "",
+      popupName: ''
     }
   },
   watch: {
