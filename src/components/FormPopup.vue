@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-dialog :visible.sync="isPopupOpen" show-close width="502px">
+    <el-dialog :visible.sync="isPopupOpen" width="502px" :close-on-click-modal="false">
       <slot />
 <!--      <el-dialog-->
 <!--          width="502px"-->

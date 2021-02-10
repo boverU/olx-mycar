@@ -27,9 +27,8 @@
         <div class="custom-acception">
           <el-checkbox
               v-model="accept"
-              class="custom-acception"
+              class="custom-acception text"
           >
-            <div class="text">
               Отправляя заявку, я соглашаюсь на условия
               <a
                   href="https://finance.mycar.kz/user_agreement.pdf"
@@ -50,7 +49,6 @@
                   href="https://finance.mycar.kz/kredit_buro.pdf"
                   target="_blank">кредитное бюро
               </a>
-            </div>
           </el-checkbox>
         </div>
         <el-button
@@ -136,7 +134,6 @@ export default {
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  margin-top: 15vh;
 
   .form {
     display: flex;
@@ -226,18 +223,17 @@ export default {
         border-color: #737c92;
       }
 
-      .text {
-        white-space: pre;
+       .text > .el-checkbox__label{
         width: 100%;
         height: auto;
-        display: flex;
-        align-items: flex-start;
-        flex-wrap: wrap;
         color: #737c92;
         font-size: 13px;
         line-height: 15px;
+        white-space: initial;
+        text-align: left;
 
         > a {
+          text-decoration: none;
           color: #6c06e8;
         }
       }
