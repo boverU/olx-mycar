@@ -1,105 +1,25 @@
 <template>
   <div>
-    <el-dialog :visible.sync="isPopupOpen" show-close width="502px">
+    <el-dialog
+      :visible.sync="isPopupOpen"
+      width="502px"
+      :fullscreen="true"
+      :show-close="true"
+      custom-class="dialog-window"
+    >
       <slot />
-      <el-dialog
-        width="502px"
-        title="Inner Dialog"
-        :visible.sync="innerVisible"
-        append-to-body
-        class="popup"
-      >
-        <div v-if="!resolveCustomStatus" class="form">
-          <h2 class="title">
-            {{ computedTitle }}
-          </h2>
-          <span class="subtitle">{{ computedSubTitle }}</span>
-
-          <div class="progress-wrap">
-            <progress-bar
-              v-if="resolveStatus === 'pending'"
-              :bar-color="['#c89dfc', '#975CDF']"
-              :percentage="percentage"
-            />
-          </div>
-
-          <icon
-            :type="'car'"
-            class="car-icon"
-            :style="carStyle"
-            :class="{ active: resolveStatus === 'success' }"
-          />
-          <icon :type="'wind'" :class="loaded ? 'wind' : 'wind-animate'" />
-          <icon
-            :type="'wind'"
-            :class="loaded ? 'wind' : 'wind-animate-second'"
-          />
-
-          <div class="man">
-            <div class="man_wrapper">
-              <icon :type="'man'" class="body" />
-              <icon :type="'hand1'" class="hand1" :class="{ active: active }" />
-              <icon :type="'hand2'" class="hand2" :class="{ active: active }" />
-              <icon
-                :type="'glasses'"
-                class="glasses"
-                :class="{ active: active }"
-              />
-            </div>
-          </div>
-
-          <icon
-            :type="'star'"
-            class="star star-1"
-            :class="{ active: active }"
-          />
-          <icon
-            :type="'star'"
-            class="star star-2"
-            :class="{ active: active }"
-          />
-
-          <icon
-            :type="'heart'"
-            class="heart heart-1"
-            :class="{ active: active }"
-          />
-          <icon
-            :type="'heart'"
-            class="heart heart-2"
-            :class="{ active: active }"
-          />
-          <icon
-            :type="'heart'"
-            class="heart heart-3"
-            :class="{ active: active }"
-          />
-          <icon
-            type="'heart'"
-            class="heart heart-4"
-            :class="{ active: resolveStatus === 'success' }"
-          />
-        </div>
-        <template v-else>
-          <resolve-popup :status="resolveCustomStatus"></resolve-popup>
-        </template>
-      </el-dialog>
     </el-dialog>
   </div>
 </template>
 
 <script>
-import Icon from './shared/Icon.vue'
-import ProgressBar from './shared/ProgressBar.vue'
-import ResolvePopup from './Scorring/ResolvePopup.vue'
+// import Icon from './shared/Icon.vue'
+// import ProgressBar from './shared/ProgressBar.vue'
+// import ResolvePopup from './Scorring/ResolvePopup.vue'
 // eslint-disable-next-line
 import { getScorringTimer } from '../utils/api.js'
 export default {
-  components: {
-    Icon,
-    ProgressBar,
-    ResolvePopup,
-  },
+  components: {},
   props: {
     isPopupOpen: {
       type: Boolean,
@@ -199,117 +119,150 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.popup {
-  .close {
-    position: absolute;
-    right: -50px;
-    top: -50px;
-    z-index: 10;
+<style lang="scss">
+.dialog-window {
+  background: rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(15px);
+}
+.el-dialog {
+  &__header {
+    display: none;
   }
-  .form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 502px;
-    height: 420px;
-    overflow: hidden;
-    background: white;
-    position: relative;
-    .but {
-      outline: none;
-      background: #6c06e8;
-      padding: 10px 32px;
-      color: white;
-      border-radius: 5px;
-      border: none;
-      & a:visited {
-        color: white;
-      }
-    }
-    .car-icon {
-      z-index: 123;
-      position: absolute;
-      transition-duration: 4000ms;
-      bottom: 50px;
-      &.active {
-        .body {
-          transition-delay: 100ms;
-          transition-duration: 400ms;
-          fill: #6c06e8;
-        }
-      }
-    }
-    .progress-wrap {
-      width: 316px;
-      height: 12px;
-    }
-    .title {
-      margin: 0;
-      margin-top: 32px;
-      margin-bottom: 8px;
-      font-weight: 500;
-      font-size: 21px;
-      line-height: 25px;
-      text-align: center;
-      overflow-wrap: break-word;
-      word-wrap: normal;
-      word-break: normal;
-      line-break: auto;
-      hyphens: manual;
-    }
-    .subtitle {
-      font-size: 15px;
-      line-height: 25px;
-      color: #737c92;
-      margin-bottom: 28px;
-      text-align: center;
-      overflow-wrap: break-word;
-      word-wrap: normal;
-      word-break: normal;
-      line-break: auto;
-      hyphens: manual;
-    }
-    .wind {
-      display: none;
-    }
-    .wind-animate {
-      z-index: 1;
-      position: absolute;
-      bottom: 120px;
-      animation: wind 4s infinite;
-      animation-timing-function: ease-in-out;
-    }
-    .wind-animate-second {
-      opacity: 0;
-      z-index: 1;
-      position: absolute;
-      bottom: 160px;
-      animation: wind 4s infinite;
-      animation-timing-function: ease-in-out;
-      animation-delay: 2500ms;
-    }
+  .wind-animate {
+    z-index: 1;
+    position: absolute;
+    bottom: 120px;
+    animation: wind 4s infinite;
+    animation-timing-function: ease-in-out;
+  }
+  .wind-animate-second {
+    opacity: 0;
+    z-index: 1;
+    position: absolute;
+    bottom: 160px;
+    animation: wind 4s infinite;
+    animation-timing-function: ease-in-out;
+    animation-delay: 2500ms;
+  }
 
-    .star {
-      opacity: 0;
-      &-1 {
-        position: absolute;
-        width: 18px;
-        height: 18px;
-        bottom: 201px;
-        right: 183px;
-        &.active {
-          opacity: 1;
-          transition-delay: 400ms;
-          transition-duration: 200ms;
-        }
+  .star {
+    opacity: 0;
+    &-1 {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      bottom: 201px;
+      right: 183px;
+      &.active {
+        opacity: 1;
+        transition-delay: 400ms;
+        transition-duration: 200ms;
       }
-      &-2 {
+    }
+    &-2 {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      bottom: 231px;
+      right: 133px;
+      &.active {
+        opacity: 1;
+        transition-delay: 600ms;
+        transition-duration: 200ms;
+      }
+    }
+  }
+
+  .heart {
+    opacity: 0;
+    &-1 {
+      position: absolute;
+      width: 45px;
+      height: 45px;
+      bottom: 171px;
+      right: 93px;
+      &.active {
+        animation-delay: 550ms !important;
+      }
+    }
+    &-2 {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      bottom: 162px;
+      right: 223px;
+      &.active {
+        animation-delay: 1200ms !important;
+      }
+    }
+    &-3 {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      bottom: 251px;
+      right: 153px;
+      &.active {
+        animation-delay: 2000ms !important;
+      }
+    }
+    &-4 {
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      bottom: -70px;
+      left: -60px;
+      &.active {
+        opacity: 1;
+        transition-delay: 300ms;
+        transition-duration: 1s;
+        animation: none !important;
+      }
+    }
+    &.active {
+      animation: statusDone 4s infinite linear;
+    }
+  }
+
+  .man {
+    z-index: 1;
+    position: absolute;
+    bottom: 67px;
+    right: 130px;
+    .man_wrapper {
+      position: relative;
+      width: 50px;
+      .hand1 {
         position: absolute;
-        width: 12px;
-        height: 12px;
-        bottom: 231px;
-        right: 133px;
+        top: 23px;
+        transform: rotate(-20deg);
+        right: 30px;
+      }
+      .hand1.active {
+        transition-duration: 300ms;
+        transform: rotate(0deg);
+        transition-timing-function: linear;
+        position: absolute;
+        top: 23px;
+        right: 38px;
+      }
+      .hand2 {
+        transform: rotate(-180deg);
+        position: absolute;
+        top: 40px;
+        right: 30px;
+        transform-origin: 5px 30px;
+        z-index: -1;
+      }
+      .hand2.active {
+        animation: hand2 700ms;
+        animation-fill-mode: forwards;
+        animation-timing-function: linear;
+      }
+      .glasses {
+        position: absolute;
+        right: 23px;
+        top: 8px;
+        opacity: 0;
         &.active {
           opacity: 1;
           transition-delay: 600ms;
@@ -317,107 +270,9 @@ export default {
         }
       }
     }
-
-    .heart {
-      opacity: 0;
-      &-1 {
-        position: absolute;
-        width: 45px;
-        height: 45px;
-        bottom: 171px;
-        right: 93px;
-        &.active {
-          animation-delay: 550ms !important;
-        }
-      }
-      &-2 {
-        position: absolute;
-        width: 25px;
-        height: 25px;
-        bottom: 162px;
-        right: 223px;
-        &.active {
-          animation-delay: 1200ms !important;
-        }
-      }
-      &-3 {
-        position: absolute;
-        width: 18px;
-        height: 18px;
-        bottom: 251px;
-        right: 153px;
-        &.active {
-          animation-delay: 2000ms !important;
-        }
-      }
-      &-4 {
-        position: absolute;
-        width: 260px;
-        height: 260px;
-        bottom: -70px;
-        left: -60px;
-        &.active {
-          opacity: 1;
-          transition-delay: 300ms;
-          transition-duration: 1s;
-          animation: none !important;
-        }
-      }
-      &.active {
-        animation: statusDone 4s infinite linear;
-      }
-    }
-
-    .man {
-      z-index: 1;
-      position: absolute;
-      bottom: 67px;
-      right: 130px;
-      .man_wrapper {
-        position: relative;
-        width: 50px;
-        .hand1 {
-          position: absolute;
-          top: 23px;
-          transform: rotate(-20deg);
-          right: 30px;
-        }
-        .hand1.active {
-          transition-duration: 300ms;
-          transform: rotate(0deg);
-          transition-timing-function: linear;
-          position: absolute;
-          top: 23px;
-          right: 38px;
-        }
-        .hand2 {
-          transform: rotate(-180deg);
-          position: absolute;
-          top: 40px;
-          right: 30px;
-          transform-origin: 5px 30px;
-          z-index: -1;
-        }
-        .hand2.active {
-          animation: hand2 700ms;
-          animation-fill-mode: forwards;
-          animation-timing-function: linear;
-        }
-        .glasses {
-          position: absolute;
-          right: 23px;
-          top: 8px;
-          opacity: 0;
-          &.active {
-            opacity: 1;
-            transition-delay: 600ms;
-            transition-duration: 200ms;
-          }
-        }
-      }
-    }
   }
 }
+
 @keyframes wind {
   0% {
     right: 226px;
