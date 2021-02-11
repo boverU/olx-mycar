@@ -5,6 +5,7 @@
                 :visible.sync="isPopupOpen"
                 append-to-body
                 class="popup"
+                :close-on-click-modal="false"
             >
               <div v-if="!resolveCustomStatus" class="form">
                 <h2 class="title">

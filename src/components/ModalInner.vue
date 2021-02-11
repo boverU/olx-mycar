@@ -65,7 +65,7 @@
             class="close is-no-stroke"
             @click="hide"
         >
-          <i class="icon close-modal-icon"/>
+          <icon :type="'close-icon'" class="close-modal-icon" />
         </el-button>
       </div>
     </div>
@@ -77,7 +77,7 @@
 <script>
 /*eslint-disable*/
 import PhoneInput from './shared/PhoneInput.vue';
-
+import Icon from "@/components/shared/Icon";
 import TextInputEasy from './shared/TextInputEasy.vue'
 import LoadScoringPopup from "@/components/LoadScoringPopup";
 
@@ -86,7 +86,8 @@ export default {
   components: {
     TextInputEasy,
     PhoneInput,
-    LoadScoringPopup
+    LoadScoringPopup,
+    Icon
   },
   props: {
     firstModal: {
@@ -200,18 +201,9 @@ export default {
       right: -35px;
     }
 
-    .icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-size: 100%;
-      background-repeat: no-repeat;
-
-      &.close-modal-icon {
-        width: 21px;
-        height: 21px;
-        background-image: url('../assets/icons/close-modal.svg');
-      }
+    .close-modal-icon {
+      width: 25px;
+      height: 25px;
     }
 
     .custom-acception {
