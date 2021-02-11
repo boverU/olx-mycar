@@ -130,7 +130,6 @@ export default {
     }
   },
   created() {
-    console.log('start second modal')
     this.startProgress()
   },
   beforeDestroy() {
