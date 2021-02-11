@@ -164,7 +164,9 @@ export default {
       this.selectedBrand = value;
     },
     togglePopup() {
-      this.isPopupOpen = !this.isPopupOpen;
+      if (this.selectedBrand !== '') {
+        this.isPopupOpen = !this.isPopupOpen;
+      }
     },
     handleClose() {
       this.isPopupOpen = false;
