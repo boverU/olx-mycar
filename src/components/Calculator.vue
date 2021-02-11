@@ -8,7 +8,7 @@
             <div class="calculator-field__title">Выберите марку авто, которую хотите приобрести</div>
             <el-select v-model="selectedBrand"
                        class="calculator-field__input"
-                       :class="[{'is-error': selectedBrand}]"
+                       :class="[{'is-error': selectedBrand===''}]"
                        filterable
                        placeholder="Выберите марку">
               <el-option
@@ -19,8 +19,8 @@
               </el-option>
             </el-select>
             <span
-                v-if="!selectedBrand"
                 class="error-text"
+                v-if="selectedBrand===''"
             >Пожалуйста выберите марку машины
             </span>
           </div>
@@ -158,7 +158,7 @@ export default {
       }
       getAnnualPayment(data).then(response => {
         this.creditPriceMonth = response.data.result;
-      })
+      }, (err) => console.log(err))
     },
     filterMethod(value) {
       this.selectedBrand = value;
@@ -204,14 +204,12 @@ export default {
 }
 
 .error-text {
-  position: absolute;
-  bottom: -16px;
   font-size: 11px;
   color: #fa4550;
 }
 
-.is-error {
-  border: 1px solid #ff6770;
+.is-error > .el-input > .el-input__inner {
+  border-color: #fa4550;
 }
 
 .calculator {
