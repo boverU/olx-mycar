@@ -65,7 +65,7 @@
             class="close is-no-stroke"
             @click="hide"
         >
-          <i class="icon close-modal"/>
+          <i class="icon close-modal-icon"/>
         </el-button>
       </div>
     </div>
@@ -207,7 +207,7 @@ export default {
       background-size: 100%;
       background-repeat: no-repeat;
 
-      &.close-modal {
+      &.close-modal-icon {
         width: 21px;
         height: 21px;
         background-image: url('../assets/icons/close-modal.svg');
