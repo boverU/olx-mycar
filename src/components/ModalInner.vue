@@ -146,16 +146,13 @@ export default {
         phonenumber: this.phone,
         iin: this.iin,
       };
-      console.log( {...obj, ...this.crmData})
       return {...obj, ...this.crmData}
     },
     async showSuccess() {
       if (this.validation()) {
         getScorringTimer().then((res) => {
-          console.log(res);
           this.resolveStatus = 'pending'
           getScorring(this.iin).then((resp) => {
-            console.log(resp)
             switch (resp.status) {
               case 'Ваша заявка одобрена':
                 this.resolveStatus = 'send_crm';
@@ -175,11 +172,11 @@ export default {
                 break;
             }
 
-            // this.resolveStatus = 'done-recently';
+            // this.resolveStatus = 'send_crm';
 
           }, () => {
             this.resolveStatus = 'error';
-            // this.resolveStatus = 'done-recently';
+            // this.resolveStatus = 'send_crm';
 
           })
           this.openSecondModal();

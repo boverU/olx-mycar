@@ -13,6 +13,11 @@
       </h2>
       <span class="subtitle">{{ computedSubTitle }}</span>
 
+      <button class="but" v-if="resolveStatus === 'success'">
+        <a href="/">
+          На главную
+        </a>
+      </button>
       <div class="progress-wrap">
         <progress-bar
             v-if="resolveStatus === 'pending'"
@@ -121,24 +126,26 @@ export default {
       active: false,
       modalName: 'LoadScorringPopup',
       timerId: null,
-      timer: 30
+      timer: 30,
     }
   },
   created() {
     console.log('start second modal')
     this.startProgress()
   },
+  beforeDestroy() {
+    this.hide();
+  },
   watch: {
     async resolveStatus() {
-      console.log(this.resolveStatus)
       if (this.resolveStatus === 'pending') {
         this.startProgress();
       } else if (this.resolveStatus === 'send_crm') {
         // Скоринг одобрил, надо отправить в CRM
-        sendToCrm(this.crmData).then(res => {
+        this.sendToCrm(this.crmData).then(res => {
           this.percentage = 100;
           this.active = true;
-          if (resp) {
+          if (res) {
             // this.resolveStatus = 'success';
             this.$emit('setSuccessStatus')
           } else {
@@ -215,6 +222,9 @@ export default {
     },
   },
   methods: {
+    sendToCrm1(a) {
+      return Promise.resolve('asd')
+    },
     hide() {
       this.$emit('close')
     },
@@ -270,14 +280,19 @@ export default {
     position: relative;
 
     .but {
-      outline: none;
       background: #6c06e8;
-      padding: 10px 32px;
-      color: white;
-      border-radius: 5px;
+      z-index: 2;
       border: none;
+      border-radius: 5px;
+      outline: none;
+      color: white;
+      padding: 10px 31px;
 
-      & a:visited {
+      a {
+        text-decoration: none;
+      }
+
+      a:visited {
         color: white;
       }
     }
