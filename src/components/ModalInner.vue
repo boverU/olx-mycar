@@ -80,6 +80,7 @@ import PhoneInput from './shared/PhoneInput.vue';
 import Icon from "@/components/shared/Icon";
 import TextInputEasy from './shared/TextInputEasy.vue'
 import LoadScoringPopup from "@/components/LoadScoringPopup";
+import { getScorringTimer } from '../utils/api.js'
 
 
 export default {
@@ -121,8 +122,10 @@ export default {
         phonenumber: this.phone,
         iin: this.iin,
       };
-      console.log(obj);
-      this.openSecondModal();
+      getScorringTimer().then((res) => {
+        console.log(res);
+        this.openSecondModal();
+      })
     },
     openSecondModal() {
       this.firstModal = false;
