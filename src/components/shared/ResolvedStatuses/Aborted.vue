@@ -6,51 +6,55 @@
     <span class="subtitle">
       Вы можете узнать причину отказа, позвонив на бесплатный номер 2525
     </span>
-    <button class="but"></button>
+    <button class="but">
+      <a href="/">
+        На главную
+      </a>
+    </button>
     <img
-      class="wasted"
-      src="@/assets/images/scorringSprites/ManWasted.png"
-      alt=""
+        class="wasted"
+        src="@/assets/images/scorringSprites/ManWasted.png"
+        alt=""
     />
-    <img class="cry" src="@/assets/images/scorringSprites/ManCry.png" alt="" />
+    <img class="cry" src="@/assets/images/scorringSprites/ManCry.png" alt=""/>
     <img
-      class="car"
-      src="@/assets/images/scorringSprites/CarBumper.png"
-      alt=""
+        class="car"
+        src="@/assets/images/scorringSprites/CarBumper.png"
+        alt=""
     />
     <svg
-      class="wind-1"
-      width="31"
-      height="3"
-      viewBox="0 0 31 3"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+        class="wind-1"
+        width="31"
+        height="3"
+        viewBox="0 0 31 3"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M1.45007 1.7207H29.5514"
-        stroke="#F0E6FD"
-        stroke-width="2"
-        stroke-linecap="round"
+          d="M1.45007 1.7207H29.5514"
+          stroke="#F0E6FD"
+          stroke-width="2"
+          stroke-linecap="round"
       />
     </svg>
     <svg
-      class="wind-2"
-      width="22"
-      height="3"
-      viewBox="0 0 22 3"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+        class="wind-2"
+        width="22"
+        height="3"
+        viewBox="0 0 22 3"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M1.76929 1.8501L20.5035 1.8501"
-        stroke="#F0E6FD"
-        stroke-width="2"
-        stroke-linecap="round"
+          d="M1.76929 1.8501L20.5035 1.8501"
+          stroke="#F0E6FD"
+          stroke-width="2"
+          stroke-linecap="round"
       />
     </svg>
 
-    <icon :type="'bittenHeart'" class="heart-1" />
-    <icon :type="'bittenHeart'" class="heart-2" />
+    <icon :type="'bittenHeart'" class="heart-1"/>
+    <icon :type="'bittenHeart'" class="heart-2"/>
   </div>
 </template>
 
@@ -58,7 +62,7 @@
 import Icon from '../Icon.vue'
 
 export default {
-  components: { Icon },
+  components: {Icon},
 }
 </script>
 
@@ -71,6 +75,7 @@ export default {
   height: 100%;
   position: relative;
   overflow: hidden;
+
   .bg-img {
     z-index: -1;
     width: 100%;
@@ -78,6 +83,7 @@ export default {
     background-size: cover;
     position: absolute;
   }
+
   .title {
     margin: 0;
     margin-top: 32px;
@@ -86,6 +92,7 @@ export default {
     font-size: 21px;
     line-height: 25px;
   }
+
   .subtitle {
     font-weight: normal;
     font-size: 15px;
@@ -99,16 +106,25 @@ export default {
     line-break: auto;
     hyphens: manual;
   }
+
   .but {
     background: #6c06e8;
+    z-index: 2;
     border: none;
     border-radius: 5px;
+    outline: none;
     color: white;
     padding: 10px 31px;
+
+    a {
+      text-decoration: none;
+    }
+
     a:visited {
       color: white;
     }
   }
+
   .cry {
     z-index: 3;
     position: absolute;
@@ -117,6 +133,7 @@ export default {
     width: 34px;
     height: 133px;
   }
+
   .wasted {
     z-index: 3;
     position: absolute;
@@ -125,22 +142,26 @@ export default {
     width: 226px;
     height: 235px;
   }
+
   .car {
     position: absolute;
     right: 0;
     bottom: 48px;
     height: 102px;
   }
+
   .wind-2 {
     position: absolute;
     bottom: 99px;
     right: 71px;
   }
+
   .wind-1 {
     position: absolute;
     bottom: 118px;
     right: 80px;
   }
+
   .heart-1 {
     z-index: 2;
     position: absolute;
@@ -150,11 +171,13 @@ export default {
     width: 61px;
     animation: heart 8s infinite ease-in-out;
     transform: scale(2, 2);
+
     path {
       width: 100% !important;
       height: 100% !important;
     }
   }
+
   .heart-2 {
     z-index: 2;
     right: 40.82%;
@@ -173,9 +196,11 @@ export default {
     .title {
       margin-top: 20vh;
     }
+
     .wasted {
       left: -20px;
     }
+
     .cry {
       z-index: 9;
       right: 48px;

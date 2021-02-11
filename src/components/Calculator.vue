@@ -88,8 +88,8 @@
         </div>
       </div>
     </div>
-    <form-popup :is-popup-open="isPopupOpen" >
-      <modal-inner @close="handleClose"/>
+    <form-popup :is-popup-open="isPopupOpen">
+      <modal-inner :crm-data="getCrmData" @close="handleClose"/>
     </form-popup>
 
   </div>
@@ -115,6 +115,7 @@ export default {
       months: '',
       creditPriceMonth: 0,
       selectedBrand: '',
+      selectedBrandName: '',
       brands: [],
       min_initial_fee: 0,
       payment: null,
@@ -136,17 +137,18 @@ export default {
             this.months = res.data.data.max_credit_term
       })
     },
-   
+
   },
-  created(){
-    getCreditAvailableBrands().then(res=>{
-      this.brands = res.data.data.map(brand=>{
+  created() {
+    getCreditAvailableBrands().then(res => {
+      this.brands = res.data.data.map(brand => {
         return {label: brand.brand_name, value: brand.brand_advertisement_id}
       })
     })
   },
-  methods:{
-    async dataChange(){
+  methods: {
+
+    async dataChange() {
       const data = {
         brand_id: this.selectedBrand,
         auto_price: this.price,
@@ -168,13 +170,16 @@ export default {
       this.isPopupOpen = false;
     },
   },
-  computed:{
+  computed: {
+    getCrmData() {
+      return {car_price: this.price, brand_name: this.brands.find((brand) => brand.value === this.selectedBrand)?.label}
+    },
     max_init_fee() {
-          let index = 0.99;
-            /* Пограничное значени */
-          if (this.price < 500000) {
-                return 500000 * 0.99;
-          }
+      let index = 0.99;
+      /* Пограничное значени */
+      if (this.price < 500000) {
+        return 500000 * 0.99;
+      }
 
       /* Меняем процент если суммма уж очень большая */
       if (this.price >= 1000000000) index = 0.9999;
@@ -184,11 +189,11 @@ export default {
       return this.price * 0.2;
     },
     creditPriceMonthWithSpaces() {
-      return (+this.creditPriceMonth).toLocaleString(undefined,{maximumFractionDigits:0});
+      return (+this.creditPriceMonth).toLocaleString(undefined, {maximumFractionDigits: 0});
     },
 
   },
-  
+
 }
 </script>
 
@@ -197,6 +202,7 @@ export default {
   padding-top: 64px;
   padding-bottom: 100px;
 }
+
 .error-text {
   position: absolute;
   bottom: -16px;

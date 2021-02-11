@@ -10,7 +10,7 @@
     </h2>
     <span class="subtitle">Попробуйте оставить заявку позже</span>
     <button class="but">
-      <a>
+      <a href="/">
         На главную
       </a>
     </button>
@@ -74,8 +74,12 @@ export default {}
     z-index: 2;
     border: none;
     border-radius: 5px;
+    outline: none;
     color: white;
     padding: 10px 31px;
+    a {
+      text-decoration: none;
+    }
     a:visited {
       color: white;
     }

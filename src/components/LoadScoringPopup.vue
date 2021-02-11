@@ -1,87 +1,87 @@
 <template>
-            <el-dialog
-                width="502px"
-                title="Inner Dialog"
-                :visible.sync="isPopupOpen"
-                append-to-body
-                class="popup"
-                :close-on-click-modal="false"
-            >
-              <div v-if="!resolveCustomStatus" class="form">
-                <h2 class="title">
-                  {{ computedTitle }}
-                </h2>
-                <span class="subtitle">{{ computedSubTitle }}</span>
+  <el-dialog
+      width="502px"
+      title="Inner Dialog"
+      :visible.sync="isPopupOpen"
+      append-to-body
+      class="popup"
+      :close-on-click-modal="false"
+  >
+    <div v-if="!resolveCustomStatus" class="form">
+      <h2 class="title">
+        {{ computedTitle }}
+      </h2>
+      <span class="subtitle">{{ computedSubTitle }}</span>
 
-                <div class="progress-wrap">
-                  <progress-bar
-                      v-if="resolveStatus === 'pending'"
-                      :bar-color="['#c89dfc', '#975CDF']"
-                      :percentage="percentage"
-                  />
-                </div>
+      <div class="progress-wrap">
+        <progress-bar
+            v-if="resolveStatus === 'pending'"
+            :bar-color="['#c89dfc', '#975CDF']"
+            :percentage="percentage"
+        />
+      </div>
 
-                <icon
-                    :type="'car'"
-                    class="car-icon"
-                    :style="carStyle"
-                    :class="{ active: resolveStatus === 'success' }"
-                />
-                <icon :type="'wind'" :class="loaded ? 'wind' : 'wind-animate'" />
-                <icon
-                    :type="'wind'"
-                    :class="loaded ? 'wind' : 'wind-animate-second'"
-                />
+      <icon
+          :type="'car'"
+          class="car-icon"
+          :style="carStyle"
+          :class="{ active: resolveStatus === 'success' }"
+      />
+      <icon :type="'wind'" :class="loaded ? 'wind' : 'wind-animate'"/>
+      <icon
+          :type="'wind'"
+          :class="loaded ? 'wind' : 'wind-animate-second'"
+      />
 
-                <div class="man">
-                  <div class="man_wrapper">
-                    <icon :type="'man'" class="body" />
-                    <icon :type="'hand1'" class="hand1" :class="{ active: active }" />
-                    <icon :type="'hand2'" class="hand2" :class="{ active: active }" />
-                    <icon
-                        :type="'glasses'"
-                        class="glasses"
-                        :class="{ active: active }"
-                    />
-                  </div>
-                </div>
+      <div class="man">
+        <div class="man_wrapper">
+          <icon :type="'man'" class="body"/>
+          <icon :type="'hand1'" class="hand1" :class="{ active: active }"/>
+          <icon :type="'hand2'" class="hand2" :class="{ active: active }"/>
+          <icon
+              :type="'glasses'"
+              class="glasses"
+              :class="{ active: active }"
+          />
+        </div>
+      </div>
 
-                <icon
-                    :type="'star'"
-                    class="star star-1"
-                    :class="{ active: active }"
-                />
-                <icon
-                    :type="'star'"
-                    class="star star-2"
-                    :class="{ active: active }"
-                />
+      <icon
+          :type="'star'"
+          class="star star-1"
+          :class="{ active: active }"
+      />
+      <icon
+          :type="'star'"
+          class="star star-2"
+          :class="{ active: active }"
+      />
 
-                <icon
-                    :type="'heart'"
-                    class="heart heart-1"
-                    :class="{ active: active }"
-                />
-                <icon
-                    :type="'heart'"
-                    class="heart heart-2"
-                    :class="{ active: active }"
-                />
-                <icon
-                    :type="'heart'"
-                    class="heart heart-3"
-                    :class="{ active: active }"
-                />
-                <icon
-                    type="'heart'"
-                    class="heart heart-4"
-                    :class="{ active: resolveStatus === 'success' }"
-                />
-              </div>
-              <template v-else>
-                <resolve-popup :status="resolveCustomStatus"></resolve-popup>
-              </template>
-            </el-dialog>
+      <icon
+          :type="'heart'"
+          class="heart heart-1"
+          :class="{ active: active }"
+      />
+      <icon
+          :type="'heart'"
+          class="heart heart-2"
+          :class="{ active: active }"
+      />
+      <icon
+          :type="'heart'"
+          class="heart heart-3"
+          :class="{ active: active }"
+      />
+      <icon
+          type="'heart'"
+          class="heart heart-4"
+          :class="{ active: resolveStatus === 'success' }"
+      />
+    </div>
+    <template v-else>
+      <resolve-popup :status="resolveCustomStatus"></resolve-popup>
+    </template>
+  </el-dialog>
 
 </template>
 
@@ -91,7 +91,8 @@ import Icon from './shared/Icon.vue'
 import ProgressBar from './shared/ProgressBar.vue'
 import ResolvePopup from './Scorring/ResolvePopup.vue'
 // eslint-disable-next-line
-import { getScorringTimer } from '../utils/api.js'
+import {sendToCrm} from '../utils/api.js'
+
 export default {
   components: {
     Icon,
@@ -105,18 +106,64 @@ export default {
     innerVisible: {
       type: Boolean,
     },
+    crmData: {
+      type: Object,
+      default: {}
+    },
+    resolveStatus: {
+      type: String,
+      default: 'pending'
+    }
   },
   data() {
     return {
       percentage: 0,
       active: false,
       modalName: 'LoadScorringPopup',
-      resolveStatus: '',
       timerId: null,
+      timer: 30
     }
   },
   created() {
+    console.log('start second modal')
     this.startProgress()
+  },
+  watch: {
+    async resolveStatus() {
+      console.log(this.resolveStatus)
+      if (this.resolveStatus === 'pending') {
+        this.startProgress();
+      } else if (this.resolveStatus === 'send_crm') {
+        // Скоринг одобрил, надо отправить в CRM
+        sendToCrm(this.crmData).then(res => {
+          this.percentage = 100;
+          this.active = true;
+          if (resp) {
+            // this.resolveStatus = 'success';
+            this.$emit('setSuccessStatus')
+          } else {
+            // this.resolveStatus = 'error';
+            this.$emit('setErrorStatus')
+          }
+        }, () => {
+          // this.resolveStatus = 'error';
+          this.$emit('setErrorStatus')
+        })
+
+
+      } else {
+        // Статус изменился и для него нет опред логики - заканчиваем загрузку, отображаем статус
+        clearInterval(this.timerId);
+        const endTimerId = setInterval(() => {
+          this.percentage += 2;
+          if (this.percentage > 96) {
+            this.percentage = 100;
+            clearInterval(endTimerId);
+            this.active = true;
+          }
+        }, 100);
+      }
+    },
   },
   computed: {
     carStyle() {
@@ -171,11 +218,13 @@ export default {
     hide() {
       this.$emit('close')
     },
-    clearValues() {},
+    clearValues() {
+    },
 
     startProgress() {
       this.percentage = 0
-      this.resolveStatus = 'pending'
+
+      this.$emit('setPendingStatus')
       this.active = false
       this.timerId = setInterval(() => {
         // Согласно дизайну, мащина сначала вьезжает быстро
@@ -184,7 +233,7 @@ export default {
         // Всего получается 10 + 70*2 = 150 тиков => время между тиками = timer * 1000 / 150
 
         // Скоринг одобрил, надо отправить в CRM, после 94 проц загрузка останавливается до ответа
-        if (this.percentage > 94 && this.resolveVuexStatus !== 'pending') {
+        if (this.percentage > 94 && this.resolveStatus !== 'pending') {
           clearInterval(this.timerId)
         }
 
@@ -192,7 +241,8 @@ export default {
         if (this.percentage === 100) {
           clearInterval(this.timerId)
           this.active = true
-          this.resolveStatus = 'not-done'
+          // this.resolveStatus = 'not-done'
+          this.$emit('setNotDoneStatus')
         }
       }, this.timerTick)
     },
@@ -208,6 +258,7 @@ export default {
     top: -50px;
     z-index: 10;
   }
+
   .form {
     display: flex;
     flex-direction: column;
@@ -217,6 +268,7 @@ export default {
     overflow: hidden;
     background: white;
     position: relative;
+
     .but {
       outline: none;
       background: #6c06e8;
@@ -224,15 +276,18 @@ export default {
       color: white;
       border-radius: 5px;
       border: none;
+
       & a:visited {
         color: white;
       }
     }
+
     .car-icon {
       z-index: 123;
       position: absolute;
       transition-duration: 4000ms;
       bottom: 50px;
+
       &.active {
         .body {
           transition-delay: 100ms;
@@ -241,10 +296,12 @@ export default {
         }
       }
     }
+
     .progress-wrap {
       width: 316px;
       height: 12px;
     }
+
     .title {
       margin: 0;
       margin-top: 32px;
@@ -259,6 +316,7 @@ export default {
       line-break: auto;
       hyphens: manual;
     }
+
     .subtitle {
       font-size: 15px;
       line-height: 25px;
@@ -271,9 +329,11 @@ export default {
       line-break: auto;
       hyphens: manual;
     }
+
     .wind {
       display: none;
     }
+
     .wind-animate {
       z-index: 1;
       position: absolute;
@@ -281,6 +341,7 @@ export default {
       animation: wind 4s infinite;
       animation-timing-function: ease-in-out;
     }
+
     .wind-animate-second {
       opacity: 0;
       z-index: 1;
@@ -293,24 +354,28 @@ export default {
 
     .star {
       opacity: 0;
+
       &-1 {
         position: absolute;
         width: 18px;
         height: 18px;
         bottom: 201px;
         right: 183px;
+
         &.active {
           opacity: 1;
           transition-delay: 400ms;
           transition-duration: 200ms;
         }
       }
+
       &-2 {
         position: absolute;
         width: 12px;
         height: 12px;
         bottom: 231px;
         right: 133px;
+
         &.active {
           opacity: 1;
           transition-delay: 600ms;
@@ -321,42 +386,50 @@ export default {
 
     .heart {
       opacity: 0;
+
       &-1 {
         position: absolute;
         width: 45px;
         height: 45px;
         bottom: 171px;
         right: 93px;
+
         &.active {
           animation-delay: 550ms !important;
         }
       }
+
       &-2 {
         position: absolute;
         width: 25px;
         height: 25px;
         bottom: 162px;
         right: 223px;
+
         &.active {
           animation-delay: 1200ms !important;
         }
       }
+
       &-3 {
         position: absolute;
         width: 18px;
         height: 18px;
         bottom: 251px;
         right: 153px;
+
         &.active {
           animation-delay: 2000ms !important;
         }
       }
+
       &-4 {
         position: absolute;
         width: 260px;
         height: 260px;
         bottom: -70px;
         left: -60px;
+
         &.active {
           opacity: 1;
           transition-delay: 300ms;
@@ -364,6 +437,7 @@ export default {
           animation: none !important;
         }
       }
+
       &.active {
         animation: statusDone 4s infinite linear;
       }
@@ -374,15 +448,18 @@ export default {
       position: absolute;
       bottom: 67px;
       right: 130px;
+
       .man_wrapper {
         position: relative;
         width: 50px;
+
         .hand1 {
           position: absolute;
           top: 23px;
           transform: rotate(-20deg);
           right: 30px;
         }
+
         .hand1.active {
           transition-duration: 300ms;
           transform: rotate(0deg);
@@ -391,6 +468,7 @@ export default {
           top: 23px;
           right: 38px;
         }
+
         .hand2 {
           transform: rotate(-180deg);
           position: absolute;
@@ -399,16 +477,19 @@ export default {
           transform-origin: 5px 30px;
           z-index: -1;
         }
+
         .hand2.active {
           animation: hand2 700ms;
           animation-fill-mode: forwards;
           animation-timing-function: linear;
         }
+
         .glasses {
           position: absolute;
           right: 23px;
           top: 8px;
           opacity: 0;
+
           &.active {
             opacity: 1;
             transition-delay: 600ms;
@@ -419,6 +500,7 @@ export default {
     }
   }
 }
+
 @keyframes wind {
   0% {
     right: 226px;

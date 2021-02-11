@@ -15,3 +15,5 @@ export const getScorringTimer = () =>
 export const getScorring = (iin) =>
     axios.get(`https://credit.mycar.kz/get_scoring/?iin=${iin}
 `)
+export const sendToCrm = (obj) =>
+    axios.post('https://credit.mycar.kz/crm_processing/', obj)

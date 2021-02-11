@@ -264,6 +264,10 @@
   <svg v-else-if="type === 'close-icon'" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M1.125 1.125L10.5 10.5M10.5 10.5L19.875 1.125M10.5 10.5L1.125 19.875M10.5 10.5L19.875 19.875" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
+  <svg v-else-if="type === 'input-clear'" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0.75 0.75L6.00002 6M6.00002 6L11.25 0.75M6.00002 6L0.75 11.25M6.00002 6L11.25 11.25" stroke="#7E88A4" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+
 
 </template>
 
