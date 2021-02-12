@@ -28,7 +28,7 @@
 <script>
 export default {
     props: {
-    
+
   }
 
 }
@@ -38,7 +38,7 @@ export default {
 
   .hero{
     display: flex;
-    
+
     &-left{
       max-width: 587px;
       &__title{
@@ -93,9 +93,63 @@ export default {
       margin-right: -120px;
       img{
         width: 100%;
-      };
+      }
     }
-    
+
+  }
+
+  @media (max-width: 576px) {
+    .hero {
+      &-left {
+        width: 100%;
+
+        &__title {
+          font-size: 21px;
+          line-height: 27px;
+          margin-top: 30px;
+        }
+
+        &__subtitle {
+          font-size: 15px;
+          line-height: 21px;
+          margin-top: 12px;
+        }
+
+        &__conditions {
+          flex-wrap: wrap;
+        }
+
+        .condition {
+          margin-right: 40px;
+          margin-bottom: 16px;
+
+
+          div:first-child{
+            font-size: 15px;
+            line-height: 18px;
+          }
+
+          div:nth-child(2){
+            font-size: 21px;
+            line-height: 25px;
+          }
+        }
+
+        .condition:not(:first-child){
+          margin-left: 0px;
+        }
+
+        .button {
+          margin-top: 14px;
+          margin-bottom: 24px;
+        }
+
+      }
+
+      &-right {
+       display: none;
+      }
+    }
   }
 
 </style>

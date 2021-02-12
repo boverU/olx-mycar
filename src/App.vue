@@ -91,6 +91,13 @@ body,
     padding-left: 30px;
   }
 }
+
+@media (max-width: 576px) {
+  .app {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
 .el-dialog__wrapper {
   background: rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(15px);
