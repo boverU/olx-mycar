@@ -153,7 +153,8 @@ export default {
         getScorringTimer().then((res) => {
           this.resolveStatus = 'pending'
           getScorring(this.iin).then((resp) => {
-            switch (resp.status) {
+            console.log('then',resp)
+            switch (resp.data.status) {
               case 'Ваша заявка одобрена':
                 this.resolveStatus = 'send_crm';
                 break;
@@ -171,13 +172,10 @@ export default {
                 this.resolveStatus = 'error';
                 break;
             }
-
-            // this.resolveStatus = 'send_crm';
-
-          }, () => {
+          }).catch( (error) => {
+            console.log('catch')
             this.resolveStatus = 'error';
-            // this.resolveStatus = 'send_crm';
-
+            console.log(error)
           })
           this.openSecondModal();
         })

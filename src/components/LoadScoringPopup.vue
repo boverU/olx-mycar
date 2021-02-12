@@ -126,7 +126,7 @@ export default {
       active: false,
       modalName: 'LoadScorringPopup',
       timerId: null,
-      timer: 30,
+      timer: 200,
     }
   },
   created() {
@@ -145,14 +145,11 @@ export default {
           this.percentage = 100;
           this.active = true;
           if (res) {
-            // this.resolveStatus = 'success';
             this.$emit('setSuccessStatus')
           } else {
-            // this.resolveStatus = 'error';
             this.$emit('setErrorStatus')
           }
-        }, () => {
-          // this.resolveStatus = 'error';
+        }).catch(() => {
           this.$emit('setErrorStatus')
         })
 
