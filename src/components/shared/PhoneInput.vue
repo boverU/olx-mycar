@@ -15,13 +15,6 @@
           @input="onchange"
       >
       <span class="placeholder">Введите телефон</span>
-      <!--            <icon-button-->
-      <!--                v-if="full"-->
-      <!--                class="icon"-->
-      <!--                icon-class="icon-input-close"-->
-      <!--                @click.native="clear"-->
-      <!--            />-->
-
       <icon
           v-if="full"
           :type="'input-clear'"
