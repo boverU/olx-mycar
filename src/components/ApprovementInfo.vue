@@ -147,11 +147,11 @@ export default {
         line-height: 21px;
         text-align: center;
 
-        //TODO beka fix next icon to be more adaptive
         svg {
           transform: rotate(90deg);
           top: 50px;
-          left: 30%;
+          left: 50%;
+          margin-left: -79px;
         }
 
       }
