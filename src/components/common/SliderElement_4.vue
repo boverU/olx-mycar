@@ -71,4 +71,66 @@ export default {
         }
     }
 
+    @media (max-width: 576px) {
+      .adv {
+        padding-left: 0px;
+        flex-direction: column;
+
+        &-left {
+          &__image {
+            width: 200px;
+          }
+        }
+
+        &-right{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-left: 0px;
+          width: 100%;
+
+          &__title{
+            font-size: 18px;
+            line-height: 24px;
+            text-align: center;
+            margin-top: 12px;
+          }
+          &__content {
+            width: 80%;
+            display: flex;
+            margin-top: 0px;
+            flex-direction: column;
+
+            .item {
+              margin-top: 12px;
+
+              .item-text{
+                text-align: center;
+                font-size: 18px;
+                line-height: 24px;
+              }
+              .item-inner{
+                text-align: center;
+                font-size: 15px;
+                line-height: 21px;
+
+                br {
+                  display: none;
+                }
+              }
+            }
+
+            .item:nth-child(2){
+              margin-left: 0px;
+            }
+          }
+
+
+        }
+      }
+
+
+    }
+
+
 </style>
