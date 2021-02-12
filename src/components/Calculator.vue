@@ -74,6 +74,7 @@
         </div>
 
       </div>
+      <hr class="calculator__horizontal-line" color="#CFD7E8">
       <div class="calculator-right">
         <div class="calculator-right__card">
           <h4>Ежемесячный платеж</h4>
@@ -355,5 +356,114 @@ export default {
 .el-slider__stop.el-slider__marks-stop {
   display: none;
 }
+
+@media (max-width: 576px) {
+  .calculator-wrapper {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .calculator-flow {
+    margin-top: 20px;
+  }
+
+  .slInp {
+    &__value {
+      font-size: 15px !important;
+      line-height: 21px !important;
+      margin-top: 4px !important;
+    }
+  }
+
+  .calculator {
+    flex-direction: column;
+
+    &__horizontal-line {
+      width: 100%;
+
+      margin-top: 32px;
+      margin-bottom: 18px;
+    }
+
+    &-right {
+      margin-left: 0px;
+      min-width: 0px;
+      height: auto;
+
+      .button {
+        margin-top: 16px;
+        order: 3;
+        width: 100%;
+        font-size: 15px;
+        line-height: 18px;
+        height: 50px;
+      }
+
+
+      .img {
+        display: none;
+      }
+
+      &__card {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        box-shadow: none;
+        background: none;
+
+        h4 {
+          font-size: 12px;
+          line-height: 18px;
+        }
+
+        h3 {
+          font-weight: bold;
+          font-size: 21px;
+          line-height: 27px;
+          margin-top:4px;
+        }
+
+        p {
+          order: 4;
+          font-size: 12px;
+          line-height: 16px;
+          text-align: center;
+          margin-top: 10px;
+          align-self: center;
+        }
+      }
+
+    }
+
+    &-left {
+      h4 {
+        font-size: 21px;
+        line-height: 27px;
+        text-align: left;
+
+      }
+    }
+
+    &-field {
+      margin-top: 20px;
+
+      &__title {
+        font-size: 12px;
+        line-height: 18px;
+      }
+
+      &__input {
+        margin-top: 5px;
+
+      }
+
+
+    }
+  }
+
+
+}
+
 
 </style>

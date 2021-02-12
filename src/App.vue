@@ -97,6 +97,10 @@ body,
     padding-left: 24px;
     padding-right: 24px;
   }
+
+  .el-dialog {
+    width: 89%;
+  }
 }
 .el-dialog__wrapper {
   background: rgba(0, 0, 0, 0.1);

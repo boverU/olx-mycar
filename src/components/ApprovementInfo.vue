@@ -148,7 +148,6 @@ export default {
         text-align: center;
         justify-content: center;
 
-
         svg {
           transform: rotate(90deg);
           top: 57px;
