@@ -8,7 +8,7 @@
             <div class="calculator-field__title">Выберите марку авто, которую хотите приобрести</div>
             <el-select v-model="selectedBrand"
                        class="calculator-field__input"
-                       :class="[{'is-error': brandNotEmpty}]"
+                       :class="[{'is-error': brandEmpty}]"
                        v-on:blur="checkCarBrandEmpty"
                        filterable
                        placeholder="Выберите марку">
@@ -21,7 +21,7 @@
             </el-select>
             <span
                 class="error-text"
-                v-if="brandNotEmpty"
+                v-if="brandEmpty"
             >Пожалуйста выберите марку машины
             </span>
           </div>
@@ -122,15 +122,16 @@ export default {
       payment: null,
       maxPrice: 0,
       min_init_fee: 0,
-      isPopupOpen: true,
+      isPopupOpen: false,
       innerVisible: true,
       scoringStatus: "",
       popupName: '',
-      brandNotEmpty: false
+      brandEmpty: false
     }
   },
   watch: {
     selectedBrand() {
+      this.checkCarBrandEmpty();
       this.dataChange();
       getCreditInfoByBrandId(this.selectedBrand).then(res => {
         console.log(res)
@@ -150,7 +151,7 @@ export default {
   },
   methods: {
     checkCarBrandEmpty() {
-      this.brandNotEmpty = this.selectedBrand === '';
+      this.brandEmpty = this.selectedBrand === '';
     },
     async dataChange() {
       const data = {
@@ -168,6 +169,7 @@ export default {
       this.selectedBrand = value;
     },
     togglePopup() {
+      this.checkCarBrandEmpty()
       if (this.selectedBrand !== '') {
         this.isPopupOpen = !this.isPopupOpen;
       }
