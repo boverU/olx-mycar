@@ -128,7 +128,7 @@ export default {
 
     &-steps__step {
       max-width: 100%;
-      height: 114px;
+      height: 122px;
       padding: 0px;
       display: flex;
       justify-content: center;
@@ -146,10 +146,12 @@ export default {
         font-size: 15px;
         line-height: 21px;
         text-align: center;
+        justify-content: center;
+
 
         svg {
           transform: rotate(90deg);
-          top: 50px;
+          top: 57px;
           left: 50%;
           margin-left: -79px;
         }
