@@ -48,4 +48,27 @@ export default {
     }
    
   }
+
+  @media (max-width: 576px) {
+    .about {
+      padding-top: 40px;
+      width: 100%;
+
+      &-title {
+        text-align: left;
+
+        h1 {
+          font-size: 21px;
+          line-height: 27px;
+        }
+      }
+
+      &-subtitle {
+        text-align: left;
+        font-size: 15px;
+        line-height: 21px;
+        margin-top: 12px;
+      }
+    }
+  }
 </style>
