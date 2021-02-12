@@ -11,8 +11,9 @@
       <h2 class="title">
         {{ computedTitle }}
       </h2>
-      <span class="subtitle">{{ computedSubTitle }}</span>
-
+      <span class="subtitle">
+        {{ computedSubTitle }}
+      </span>
       <button class="but" v-if="resolveStatus === 'success'">
         <a href="/">
           На главную
@@ -95,8 +96,6 @@
 import Icon from './shared/Icon.vue'
 import ProgressBar from './shared/ProgressBar.vue'
 import ResolvePopup from './Scorring/ResolvePopup.vue'
-// eslint-disable-next-line
-import {sendToCrm} from '../utils/api.js'
 
 export default {
   components: {
@@ -126,7 +125,7 @@ export default {
       active: false,
       modalName: 'LoadScorringPopup',
       timerId: null,
-      timer: 200,
+      timer: 30,
     }
   },
   created() {
@@ -218,15 +217,9 @@ export default {
     },
   },
   methods: {
-    sendToCrm1(a) {
-      return Promise.resolve('asd')
-    },
     hide() {
       this.$emit('close')
     },
-    clearValues() {
-    },
-
     startProgress() {
       this.percentage = 0
 
