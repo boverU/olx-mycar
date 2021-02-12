@@ -338,6 +338,14 @@ export default {
 @media (max-width: 576px) {
   .dialog-wrapper-div {
     width: 100%;
+    min-height: 100%;
+    position: absolute;
+    padding: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    border: none;
+    border-radius: 0px;
   }
 }
 
