@@ -1,0 +1,31 @@
+{
+    "allowedIP": [
+        "127.0.0.1"
+    ],
+    "defaultProjectUrl": "https://mycar.kz",
+    "domain": "mycar.kz",
+    "locale": {
+        "defaultOpenGraphLocale": "ru",
+        "default": "ru",
+        "available": [
+            "ru",
+            "kz",
+            "en"
+        ],
+        "localeName": {
+            "ru": "Русский",
+            "kz": "Қазақ",
+            "en": "English"
+        },
+        "localeAlt": {
+            "ru": "Сайт на русском языке",
+            "kz": "Қазақ тіліндегі сайт",
+            "en": "Website in English"
+        }
+    },
+    "dateFormatForServer": "",
+    "dateTimeFormatForServer": "",
+    "dateFormatForClient": "",
+    "dateFormatDefault": "",
+    "dateTimeFormatDefault": ""
+}

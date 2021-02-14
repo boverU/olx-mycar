@@ -38,6 +38,7 @@
                 @slider-change="dataChange"
                 type="number"
                 :value-text="'₸'"
+                show-input
             />
           </div>
 
@@ -74,7 +75,6 @@
         </div>
 
       </div>
-      <hr class="calculator__horizontal-line" color="#CFD7E8">
       <div class="calculator-right">
         <div class="calculator-right__card">
           <h4>Ежемесячный платеж</h4>
@@ -378,12 +378,6 @@ export default {
   .calculator {
     flex-direction: column;
 
-    &__horizontal-line {
-      width: 100%;
-
-      margin-top: 32px;
-      margin-bottom: 18px;
-    }
 
     &-right {
       margin-left: 0px;
@@ -437,6 +431,10 @@ export default {
     }
 
     &-left {
+      padding-bottom: 32px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid #CFD7E8;
+
       h4 {
         font-size: 21px;
         line-height: 27px;

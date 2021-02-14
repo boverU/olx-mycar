@@ -1,0 +1,58 @@
+{
+    "projectModulesLink": {
+        "admin": "admin",
+        "dealer": "dealer",
+        "user": "user"
+    },
+    "pageLink": {
+        "main": "/",
+        "prime": "catalog/prime",
+        "credit": "credit",
+        "diller": "dealer",
+        "blog": "blog",
+        "profile": "profile",
+        "profileEdit": "profile/edit",
+        "profileFavorites": "profile/favorites",
+        "profileSettings": "profile/settings",
+        "favorites": "favorites",
+        "settings": "profile/settings",
+        "catalog": "cars/all",
+        "service": "cars/all",
+        "financial": "cars/all",
+        "feedback": "feedback.pdf",
+        "about": "aboutus.pdf",
+        "loyality": "cars/all",
+        "terms": "user_agreement.pdf",
+        "help": "cars/all",
+        "confidentiality": "sbor_obrabotka.pdf",
+        "announcement": "announcement",
+        "notification": "cars/all"
+    },
+    "mobileAppLink": {
+        "itunes": {
+            "name": "app-store",
+            "link": "https://apps.apple.com/ru/app/mycars/id1521269300?l=en"
+        },
+        "googlePlay": {
+            "name": "google-play",
+            "link": "https://play.google.com/store/apps/details?id=kz.smartmk.mycars.android"
+        }
+    },
+    "socialChannelLink": {
+        "facebook": {
+            "name": "facebook",
+            "link": "https://www.facebook.com/mycar.kz",
+            "icon": "fb"
+        },
+        "youtube": {
+            "name": "youtube",
+            "link": " https://www.youtube.com/channel/UCuhQzXuhTOf5CrmcabpJgmA",
+            "icon": "ytb"
+        },
+        "instagram": {
+            "name": "instagram",
+            "link": "https://www.instagram.com/mycar_kz/",
+            "icon": "inst"
+        }
+    }
+}

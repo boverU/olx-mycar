@@ -3,8 +3,12 @@
     <div class="nav-item">
       <MyCarSvgIcon/>
     </div>
+    <div class="gray-dot">
+    </div>
     <div class="nav-item">
       <MyCarFinSvgIcon/>
+    </div>
+    <div class="gray-dot">
     </div>
     <div class="nav-item">
       <MyCarOlxSvgIcon/>
@@ -27,6 +31,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.app {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
 .nav {
   display: flex;
   padding-top: 15px;
@@ -34,12 +44,30 @@ export default {
   justify-content: flex-start;
   align-items: center;
 
-  &-item {
-    width: fit-content;
+  &-item:last-child {
+    margin-left: 4px;
   }
 
-  &-item:not(:first-child) {
-    margin-left: 20px;
+  .gray-dot {
+    border: 2px solid #CFD7E8;
+    border-radius: 2px;
+    margin: 0px 18px 0px 18px;
+  }
+}
+
+@media (max-width: 578px) {
+  .nav {
+    &-item {
+      transform: scale(0.82);
+    }
+
+    &-item:first-child {
+      margin-left: -15px;
+    }
+
+    .gray-dot {
+      margin: 0px 8px 0px 5px;
+    }
   }
 }
 </style>

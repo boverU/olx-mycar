@@ -347,6 +347,29 @@ export default {
     border: none;
     border-radius: 0px;
   }
+
+  .popup {
+    .form {
+      width: 100vw;
+
+      h3 {
+        word-break: break-word;
+      }
+
+      .close {
+        top: 12px;
+        right: 12px;
+        padding: 0px;
+        margin: 0px;
+      }
+
+    }
+
+    .with-padding {
+      padding: 18px 40px;
+      position: unset;
+    }
+  }
 }
 
 

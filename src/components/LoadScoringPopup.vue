@@ -250,6 +250,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@media (max-width: 576px) {
+  .popup {
+    .form {
+      width: 100vw !important;
+      height: 100vh !important;
+      border: none;
+      border-radius: 0px;
+      margin: 0px;
+    }
+  }
+}
+
+
 .popup {
   .close {
     position: absolute;

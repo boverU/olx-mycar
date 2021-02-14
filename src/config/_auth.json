@@ -1,0 +1,8 @@
+{
+    "jwtIntervalCheckSeconds": 0,
+    "endOfLifeTokenInSeconds": 0,
+    "shiftForDieTimeInSeconds": 0,
+    "lockCookieExpireInSeconds": 0,
+    "CLIENT_ID": "web-client",
+    "CLIENT_SECRET": ""
+}

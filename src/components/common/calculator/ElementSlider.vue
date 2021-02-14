@@ -1,9 +1,9 @@
 <template>
     <div class="slInp">
         <div v-show="!isEditing" class = "slInp__value">{{valueWithSpaces }} {{valueText}}
-             <img @click="toggleEdit(true)" src="../../../assets/edit2.svg" alt="">
+          <EditIcon @click="toggleEdit(true)"/>
          </div>
-            <input 
+            <input
                 v-show="isEditing"
                 :ref="name"
                 v-model="inputValueWithSpaces"
@@ -45,10 +45,10 @@
  * @vue-event {} marks - Расчет промежуточных цифр для слайдера
  * @vue-event {} blur - Снять фокус и инпута
  */
-
+import EditIcon from '@/assets/EditIcon.svg'
 export default {
     components: {
-        
+      EditIcon
     },
     mounted(){
         console.log(this.$refs);
@@ -226,9 +226,9 @@ export default {
         font-size: 21px;
         line-height: 25px;
         margin-top: 8px;
-        img{
+        svg {
             cursor: pointer;
-            margin-left: 4px;
+            margin-left: 9px;
         }
     }
     input{

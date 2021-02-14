@@ -23,6 +23,13 @@
     <div class="grey-wrapper">
       <div class="app"><calculator /></div>
     </div>
+
+
+    <div class="wrapper">
+      <div class="app">
+          <the-footer />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -33,6 +40,7 @@ import About from './components/About.vue'
 import ApprovementInfo from './components/ApprovementInfo.vue'
 import Calculator from './components/Calculator.vue'
 import Slider from './components/Slider.vue'
+import TheFooter from './components/TheFooter/index.vue'
 
 export default {
   name: 'App',
@@ -43,6 +51,7 @@ export default {
     ApprovementInfo,
     Calculator,
     Slider,
+    TheFooter
   },
 }
 </script>
@@ -99,7 +108,16 @@ body,
   }
 
   .el-dialog {
-    width: 89%;
+    width: 100vw !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    height: 100vh !important;
+    overflow: auto !important;
+    display: block !important;
+
+    &__body {
+      padding: 0px !important;
+    }
   }
 }
 .el-dialog__wrapper {
@@ -109,6 +127,13 @@ body,
 .el-dialog {
   background-color: transparent !important;
   box-shadow: none !important;
+  width: 100vw !important;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px !important;
+
   &__header {
    display: none;
  }
