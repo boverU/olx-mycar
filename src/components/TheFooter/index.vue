@@ -82,7 +82,7 @@ export default {
 <style lang="scss" scoped>
 .footer {
   width: 100%;
-  padding: 22px 0 16px 0;
+  padding: 22px 22px 16px 0;
 }
 
 .footer-wrap,
