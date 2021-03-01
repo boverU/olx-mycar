@@ -1,13 +1,13 @@
 <template>
-  <div class="adv">
-        <div class="adv-left">
-            <div class="adv-left__image">
+  <div class="slider-item">
+        <div class="slider-item-left">
+            <div class="slider-item-left__image">
                 <img src="../../assets/safety.png" alt="">
             </div>
         </div>
-        <div class="adv-right">
-            <div class="adv-right__title">Минимальный первоначальный взнос</div>
-            <div class="adv-right__content">
+        <div class="slider-item-right">
+            <div class="slider-item-right__title">Минимальный первоначальный взнос</div>
+            <div class="slider-item-right__content">
                 <div class="item">
                      <div class="item-inner">В сумму автокредита включается страховая премия Каско <br> 
                      с опциями спец СТО и ремонт без учета амортизации, <br> а также страхования от НС.</div>
@@ -20,7 +20,7 @@
 <script>
 export default {
     props: {
-    
+
   }
 
 }
@@ -29,8 +29,7 @@ export default {
 
 <style lang="scss" scoped>
 
-    .adv{
-        // margin-top: 48px;
+    .slider-item{
         padding-left: 95px;
         display: flex;
         align-items: center;
@@ -72,7 +71,7 @@ export default {
     }
 
     @media (max-width: 576px) {
-      .adv {
+      .slider-item {
         padding-left: 0px;
         flex-direction: column;
 

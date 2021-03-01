@@ -1,13 +1,13 @@
 <template>
-  <div class="adv">
-        <div class="adv-left">
-            <div class="adv-left__image">
+  <div class="slider-item">
+        <div class="slider-item-left">
+            <div class="slider-item-left__image">
                 <img src="../../assets/money-tenge.png" alt="">
             </div>
         </div>
-        <div class="adv-right">
-            <div class="adv-right__title">Максимальная сумма автокредитования</div>
-            <div class="adv-right__content">
+        <div class="slider-item-right">
+            <div class="slider-item-right__title">Максимальная сумма автокредитования</div>
+            <div class="slider-item-right__content">
                 <div class="item">
                     <div class="item-text">до 30 млн. ₸</div>
                      <div class="item-inner">на новые авто</div>
@@ -33,9 +33,8 @@ export default {
 
 <style lang="scss" scoped>
 
-    .adv{
+    .slider-item{
          overflow: hidden;
-        // margin-top: 48px;
         padding-left: 95px;
         display: flex;
         align-items: center;
@@ -76,7 +75,7 @@ export default {
     }
 
     @media (max-width: 576px) {
-      .adv {
+      .slider-item {
         padding-left: 0px;
         flex-direction: column;
 

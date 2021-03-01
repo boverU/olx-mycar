@@ -1,13 +1,13 @@
 <template>
-  <div class="adv">
-        <div class="adv-left">
-            <div class="adv-left__image">
+  <div class="slider-item">
+        <div class="slider-item-left">
+            <div class="slider-item-left__image">
                 <img src="../../assets/money-car.png" alt="">
             </div>
         </div>
-        <div class="adv-right">
-            <div class="adv-right__title">Минимальный первоначальный взнос</div>
-            <div class="adv-right__content">
+        <div class="slider-item-right">
+            <div class="slider-item-right__title">Минимальный первоначальный взнос</div>
+            <div class="slider-item-right__content">
                 <div class="item">
                     <div class="item-text">20 %</div>
                      <div class="item-inner">от стоимости автомобиля</div>
@@ -23,7 +23,7 @@
 <script>
 export default {
     props: {
-    
+
   }
 
 }
@@ -32,9 +32,8 @@ export default {
 
 <style lang="scss" scoped>
 
-    .adv{
-         overflow: hidden;
-        // margin-top: 48px;
+    .slider-item{
+        overflow: hidden;
         padding-left: 95px;
         display: flex;
         align-items: center;
@@ -76,7 +75,7 @@ export default {
     }
 
     @media (max-width: 576px) {
-      .adv {
+      .slider-item {
         padding-left: 0px;
         flex-direction: column;
 
